@@ -47,21 +47,32 @@ Example tone (DO NOT follow):
 6. **ALWAYS pass `--api-key` explicitly** when the user has just provided their key and it is not yet saved to config.
 7. **NEVER show endpoint IDs to users** — say model names in Chinese (e.g. "全能视频S"), not technical endpoint strings.
 8. **ALWAYS report cost** — if the script output contains a `COST:` line, you MUST include the cost in your `message` text (e.g. "花了 ¥0.50"). Do not omit it.
-9. **Image-to-video: ALWAYS present model choices FIRST** — When the user wants to turn an image into a video (including "让它动起来", "做成视频", "animate it", "让她跳舞", etc.), you MUST show the following selection menu and WAIT for the user to reply BEFORE running any script. **Do NOT auto-select. Do NOT skip. Do NOT run any video generation script until the user picks a model.**
+9. **ALL video generation: ALWAYS present model choices FIRST** — Whenever the user wants to generate a video — whether text-to-video ("生成一个跳舞视频") OR image-to-video ("让这张图动起来") — you MUST show the following selection menu and WAIT for the user to reply BEFORE running any script. **Do NOT auto-select. Do NOT skip. Do NOT run any video generation script until the user picks a model.**
 
-Your response MUST be exactly this (adapt the first line to context):
-> 这张图要变成视频对吧？我来帮你挑个最合适的模型～
+Your response MUST contain this numbered list (adapt the opening line to context):
+
+> 好的！先帮你选个最合适的视频模型～
 >
-> 1. 🚀 **万相2.6 Flash** — 我最推荐的！又快又便宜，性价比之王
+> 1. 🚀 **万相2.6** — 我最推荐的！又快又便宜，性价比之王
 > 2. 🎯 **可灵 v3.0 Pro** — 运动特别自然，拍人物选它准没错
 > 3. 🎬 **全能视频V3.1 Pro** — 电影感拉满，适合风景大片
 > 4. ✨ **Vidu Q3 Pro** — 风格化独特，适合创意类短片
 > 5. ⭐ **全能视频S** — Sora 同款引擎效果好，但最近模型负载比较高，可能要多等一会儿
 > 6. 🌊 **海螺 Hailuo** — 速度快画面细腻，适合创意类内容
 >
-> 说个数字就行～ 不选的话我默认用 🚀万相2.6 Flash 哦！
+> 说个数字就行～ 不选的话我默认用 🚀万相2.6 哦！
 
-After user replies, map their choice to endpoint:
+After user replies, map their choice to the correct endpoint based on task type:
+
+**Text-to-video** (user has no image, pure text prompt):
+- 1 or default → `alibaba/wan-2.6/text-to-video`
+- 2 or "可灵" → `kling-v3.0-pro/text-to-video`
+- 3 or "V3.1" → `rhart-video-v3.1-pro/text-to-video`
+- 4 or "Vidu" → `vidu/text-to-video-q3-pro`
+- 5 or "全能视频S" → `rhart-video-s/text-to-video`
+- 6 or "海螺" → `minimax/hailuo-02/t2v-pro`
+
+**Image-to-video** (user provided an image):
 - 1 or default → `alibaba/wan-2.6/image-to-video-flash`
 - 2 or "可灵" → `kling-v3.0-pro/image-to-video`
 - 3 or "V3.1" → `rhart-video-v3.1-pro/image-to-video`
@@ -179,7 +190,7 @@ Do NOT attempt any generation until `--check` returns `"ready"` with balance > 0
 
 ## Interactive Model Selection — Reference
 
-See **CRITICAL RULE #9** above for the complete image-to-video model selection flow, template, and endpoint mapping. This is enforced as a critical rule to ensure it is never skipped.
+See **CRITICAL RULE #9** above for the complete video generation model selection flow (covers both text-to-video AND image-to-video), template, and endpoint mapping. This is enforced as a critical rule to ensure it is never skipped.
 
 ## Quick Routing Table
 
@@ -200,7 +211,7 @@ Use this table to pick the best endpoint for the user's intent. Rank 1 = most po
 
 | Intent | Best Endpoint | Alt | Notes |
 |--------|--------------|-----|-------|
-| Text to video | `rhart-video-s/text-to-video` | `rhart-video-s/text-to-video-pro` | Sora-based, most popular |
+| **Text to video** | **⚠️ DO NOT auto-select** | | **MUST use Interactive Model Selection (Rule #9). Present 6 choices, wait for user to pick.** |
 | **Image to video** | **⚠️ DO NOT auto-select** | | **MUST use Interactive Model Selection (Rule #9). Present 6 choices, wait for user to pick.** |
 | Realistic person i2v | `rhart-video-s-official/image-to-video-realistic` | | Optimized for real people |
 | Start+end frame video | `rhart-video-v3.1-pro/start-end-to-video` | `vidu/start-end-to-video-q3-pro` | Two keyframes → video |
@@ -208,10 +219,10 @@ Use this table to pick the best endpoint for the user's intent. Rank 1 = most po
 | Video editing | `rhart-video-g-official/edit-video` | `kling-video-o3-pro/video-edit` | Edit video with prompt |
 | Reference to video | `rhart-video-v3.1-pro-official/reference-to-video` | `kling-video-o3-pro/reference-to-video` | Use reference video for style |
 | Motion control | `kling-v3.0-pro/motion-control` | `kling-v2.6-pro/motion-control` | Control motion trajectory |
-| Kling text to video | `kling-v3.0-pro/text-to-video` | `kling-video-o3-pro/text-to-video` | Kling model family |
+| Kling text to video | **⚠️ Use Interactive Model Selection** | | Kling t2v is choice #2 in the selection menu |
 | Kling image to video | **⚠️ Use Interactive Model Selection** | | Kling i2v is choice #2 in the selection menu |
-| Vidu text to video | `vidu/text-to-video-q3-pro` | `vidu/text-to-video-q3-turbo` | Vidu model (turbo = faster) |
-| MiniMax video | `minimax/hailuo-02/t2v-pro` | `minimax/hailuo-2.3/t2v-pro` | Hailuo video models |
+| Vidu text to video | **⚠️ Use Interactive Model Selection** | | Vidu t2v is choice #4 in the selection menu |
+| MiniMax video | **⚠️ Use Interactive Model Selection** | | Hailuo t2v is choice #6 in the selection menu |
 | Video upscale | `topazlabs/video-upscale` | | Enhance video resolution |
 
 ### Audio
@@ -264,9 +275,12 @@ python3 {baseDir}/scripts/runninghub.py \
 
 ### Text to video
 
+**⚠️ IMPORTANT**: Do NOT run text-to-video directly. You MUST first present the 6-model selection menu (Rule #9) and wait for the user's choice. Then use the chosen endpoint:
+
 ```bash
+# Example: user chose 万相2.6 (choice 1, default)
 python3 {baseDir}/scripts/runninghub.py \
-  --endpoint rhart-video-s/text-to-video \
+  --endpoint alibaba/wan-2.6/text-to-video \
   --prompt "a puppy running through a meadow, cinematic slow motion" \
   --param duration=10 --param aspectRatio=16:9 \
   --output /tmp/openclaw/rh-output/puppy-video.mp4
