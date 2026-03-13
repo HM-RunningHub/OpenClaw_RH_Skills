@@ -31,7 +31,7 @@ ACCOUNT_STATUS_URL = "https://www.runninghub.cn/uc/openapi/accountStatus"
 POLL_ENDPOINT = "/query"
 UPLOAD_ENDPOINT = "/media/upload/binary"
 
-MAX_POLL_SECONDS = 900
+MAX_POLL_SECONDS = 1200
 POLL_INTERVAL = 5
 
 SCRIPT_DIR = Path(__file__).resolve().parent

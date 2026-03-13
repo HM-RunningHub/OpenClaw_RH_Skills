@@ -19,22 +19,17 @@ import os
 import subprocess
 import sys
 import tempfile
-import time
 from pathlib import Path
 
 API_HOST = "https://www.runninghub.cn"
 NODE_INFO_PATH = "/api/webapp/apiCallDemo"
 UPLOAD_PATH = "/task/openapi/upload"
 SUBMIT_PATH = "/task/openapi/ai-app/run"
-OUTPUTS_PATH = "/task/openapi/outputs"
-
-MAX_POLL_SECONDS = 900
-POLL_INTERVAL = 5
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 
 sys.path.insert(0, str(SCRIPT_DIR))
-from runninghub import resolve_api_key, require_api_key, cmd_check  # noqa: E402
+from runninghub import resolve_api_key, require_api_key, cmd_check, poll_task  # noqa: E402
 
 
 # ---------------------------------------------------------------------------
@@ -208,80 +203,6 @@ def submit_task(api_key: str, webapp_id: str, node_info_list: list[dict],
     return data
 
 
-def query_outputs(api_key: str, task_id: str) -> tuple[str, dict | list | None]:
-    """Returns (status, data). status is one of: SUCCESS, RUNNING, QUEUED, FAILED, UNKNOWN."""
-    url = f"{API_HOST}{OUTPUTS_PATH}"
-    payload = {"apiKey": api_key, "taskId": task_id}
-    result = curl_post_json(url, payload, timeout=30)
-
-    if result.returncode != 0:
-        return "UNKNOWN", None
-
-    try:
-        resp = json.loads(result.stdout)
-    except json.JSONDecodeError:
-        return "UNKNOWN", None
-
-    code = resp.get("code")
-    data = resp.get("data")
-
-    if code == 0 and data:
-        return "SUCCESS", data
-    if code == 804:
-        return "RUNNING", data
-    if code == 813:
-        return "QUEUED", data
-    if code == 805:
-        return "FAILED", data
-    return "UNKNOWN", resp
-
-
-def poll_until_done(api_key: str, task_id: str) -> list[dict]:
-    print(f"Task ID: {task_id}")
-    print("Waiting for result", end="", flush=True)
-
-    elapsed = 0
-    consecutive_failures = 0
-
-    while elapsed < MAX_POLL_SECONDS:
-        time.sleep(POLL_INTERVAL)
-        elapsed += POLL_INTERVAL
-
-        status, data = query_outputs(api_key, task_id)
-
-        if status == "SUCCESS":
-            print(f" done ({elapsed}s)")
-            return data if isinstance(data, list) else [data]
-
-        if status == "FAILED":
-            print()
-            reason = ""
-            if isinstance(data, dict):
-                fr = data.get("failedReason")
-                if fr:
-                    reason = f" Node {fr.get('node_name', '?')}: {fr.get('exception_message', '?')}"
-            print(json.dumps({
-                "error": "TASK_FAILED",
-                "message": f"AI app task failed.{reason}",
-                "detail": data,
-            }, ensure_ascii=False), file=sys.stderr)
-            sys.exit(1)
-
-        if status == "UNKNOWN":
-            consecutive_failures += 1
-            print("x", end="", flush=True)
-            if consecutive_failures >= 5:
-                print(f"\nToo many consecutive poll failures", file=sys.stderr)
-                sys.exit(1)
-            continue
-
-        consecutive_failures = 0
-        print(".", end="", flush=True)
-
-    print(f"\nTimeout after {MAX_POLL_SECONDS}s", file=sys.stderr)
-    sys.exit(1)
-
-
 def download_file(url: str, output_path: str) -> str:
     Path(output_path).parent.mkdir(parents=True, exist_ok=True)
     cmd = ["curl", "-s", "-S", "-L", "-o", output_path, "--max-time", "300", url]
@@ -367,13 +288,26 @@ def cmd_run(args):
     data = submit_task(api_key, webapp_id, node_list, args.instance_type or "default")
     task_id = str(data["taskId"])
 
-    results = poll_until_done(api_key, task_id)
+    final = poll_task(api_key, task_id)
+    results = final.get("results")
+
+    usage = final.get("usage") or {}
+    consume_money = usage.get("consumeMoney") or usage.get("thirdPartyConsumeMoney")
+    task_cost_time = usage.get("taskCostTime")
+
+    if not results:
+        print(json.dumps({
+            "error": "TASK_FAILED",
+            "message": "No results in final response",
+        }, ensure_ascii=False), file=sys.stderr)
+        sys.exit(1)
 
     file_urls = []
     for item in results:
-        url = item.get("fileUrl") or item.get("url") or item.get("outputUrl")
+        url = item.get("url") or item.get("outputUrl")
+        ext = item.get("outputType", "")
         if url:
-            file_urls.append(url)
+            file_urls.append((url, ext))
 
     if not file_urls:
         text_results = []
@@ -384,13 +318,16 @@ def cmd_run(args):
         if text_results:
             for t in text_results:
                 print(t)
+            if consume_money is not None:
+                print(f"COST:¥{consume_money}")
             return
         print(json.dumps(results, indent=2, ensure_ascii=False))
         return
 
     output_base = args.output
-    for i, url in enumerate(file_urls):
-        ext = _guess_ext_from_url(url)
+    for i, (url, ext) in enumerate(file_urls):
+        if not ext:
+            ext = _guess_ext_from_url(url)
         if output_base:
             if len(file_urls) == 1:
                 out_path = output_base
@@ -401,12 +338,19 @@ def cmd_run(args):
         else:
             out_path = f"/tmp/openclaw/rh-output/app_result_{i+1}.{ext}"
 
-        if ext and not Path(out_path).suffix:
-            out_path = f"{out_path}.{ext}"
+        if ext:
+            out_path = str(Path(out_path).with_suffix(f".{ext}"))
+        elif not Path(out_path).suffix:
+            out_path = f"{out_path}.png"
 
         print(f"Downloading result {i+1}/{len(file_urls)}...", file=sys.stderr)
         full_path = download_file(url, out_path)
         print(f"OUTPUT_FILE:{full_path}")
+
+    if consume_money is not None:
+        print(f"COST:¥{consume_money}")
+    if task_cost_time and str(task_cost_time) != "0":
+        print(f"DURATION:{task_cost_time}s")
 
 
 def _guess_ext_from_url(url: str) -> str:
