@@ -2,7 +2,7 @@
 
 [English](./README_en.md)
 
-为 [OpenClaw](https://github.com/openclaw/openclaw) 打造的通用多媒体生成技能，由 [RunningHub](https://www.runninghub.cn) API 驱动。
+为 [OpenClaw](https://github.com/openclaw/openclaw) 打造的通用多媒体生成技能，由 [RunningHub](https://www.runninghub.ai) API 驱动。
 
 **179 个标准 API 端点 + 无限 AI 应用**，覆盖图片、视频、音频、3D 模型生成、多模态文本理解，以及任意用户创建的 AI 应用（ComfyUI 工作流）。
 
@@ -37,8 +37,24 @@
 
 ### 前置条件
 
-- **API Key** — 在 [RunningHub API 管理页面](https://www.runninghub.cn/enterprise-api/sharedApi) 创建（点击"新建"）
-- **账户余额** — [前往充值](https://www.runninghub.cn/vip-rights/4)，API 调用需要余额
+- **API Key** — 在 [RunningHub API 管理页面](https://www.runninghub.ai/enterprise-api/sharedApi) 创建（点击"新建"）
+- **账户余额** — [前往充值](https://www.runninghub.ai/vip-rights/4)，API 调用需要余额
+
+### 国际 / 国内域名切换
+
+API 默认使用国际域名 `www.runninghub.ai`。如果你的服务器在中国大陆，可以切换到 `www.runninghub.cn`：
+
+**方式一：环境变量（推荐，无需改文件）**
+```bash
+export RUNNINGHUB_DOMAIN=www.runninghub.cn
+```
+
+**方式二：批量修改脚本**
+```bash
+python3 runninghub/scripts/patch_domain.py --to cn --apply
+```
+
+`patch_domain.py` 支持 `--to ai`（国际）和 `--to cn`（国内）双向切换，不加 `--apply` 时为预览模式。
 
 ## 使用方式
 
@@ -49,7 +65,7 @@
 - *"给我的视频配个背景音乐"*
 - *"把这张图放大到 4K"*
 - *"把这张图转成 3D 模型"*
-- *"帮我跑这个 AI 应用 https://www.runninghub.cn/ai-detail/1877265245566922800"*
+- *"帮我跑这个 AI 应用 https://www.runninghub.ai/ai-detail/1877265245566922800"*
 - *"最热门的 AI 应用有哪些？"*
 - *"推荐一些最新的 AI 应用"*
 
@@ -90,6 +106,7 @@ runninghub/
 ├── scripts/
 │   ├── runninghub.py               # 标准模型 API 客户端（179 端点）
 │   ├── runninghub_app.py           # AI 应用客户端（自定义 ComfyUI 工作流）
+│   ├── patch_domain.py             # 国际/国内域名切换工具
 │   └── build_capabilities.py       # 从 models_registry.json 生成 capabilities.json
 └── data/
     └── capabilities.json           # 完整端点目录（自动生成）

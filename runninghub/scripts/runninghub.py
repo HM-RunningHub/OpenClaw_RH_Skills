@@ -26,8 +26,11 @@ import tempfile
 import time
 from pathlib import Path
 
-BASE_URL = "https://www.runninghub.cn/openapi/v2"
-ACCOUNT_STATUS_URL = "https://www.runninghub.cn/uc/openapi/accountStatus"
+# Domain: set RUNNINGHUB_DOMAIN=www.runninghub.cn for China mainland servers.
+# Default is www.runninghub.ai (international).
+RUNNINGHUB_DOMAIN = os.environ.get("RUNNINGHUB_DOMAIN", "www.runninghub.ai")
+BASE_URL = f"https://{RUNNINGHUB_DOMAIN}/openapi/v2"
+ACCOUNT_STATUS_URL = f"https://{RUNNINGHUB_DOMAIN}/uc/openapi/accountStatus"
 POLL_ENDPOINT = "/query"
 UPLOAD_ENDPOINT = "/media/upload/binary"
 
@@ -139,9 +142,9 @@ def require_api_key(provided_key: str | None) -> str:
         "error": "NO_API_KEY",
         "message": "No API key configured",
         "steps": [
-            "1. Register/login at https://www.runninghub.cn",
-            "2. Create API Key at https://www.runninghub.cn/enterprise-api/sharedApi",
-            "3. Recharge wallet at https://www.runninghub.cn/vip-rights/4",
+            f"1. Register/login at https://{RUNNINGHUB_DOMAIN}",
+            f"2. Create API Key at https://{RUNNINGHUB_DOMAIN}/enterprise-api/sharedApi",
+            f"3. Recharge wallet at https://{RUNNINGHUB_DOMAIN}/vip-rights/4",
             "4. Send the key in chat or add to ~/.openclaw/openclaw.json: skills.entries.runninghub.apiKey",
         ],
     }
@@ -191,13 +194,13 @@ def api_post(api_key: str, url: str, payload: dict, timeout: int = 60) -> dict:
             error_result = {
                 "error": "AUTH_FAILED",
                 "message": f"API authentication failed: {msg}",
-                "manage_url": "https://www.runninghub.cn/enterprise-api/sharedApi",
+                "manage_url": f"https://{RUNNINGHUB_DOMAIN}/enterprise-api/sharedApi",
             }
         elif any(k in code_str or k in msg_lower for k in ["balance", "insufficient", "余额", "credit"]):
             error_result = {
                 "error": "INSUFFICIENT_BALANCE",
                 "message": f"Insufficient balance: {msg}",
-                "recharge_url": "https://www.runninghub.cn/vip-rights/4",
+                "recharge_url": f"https://{RUNNINGHUB_DOMAIN}/vip-rights/4",
             }
         else:
             error_result = {
@@ -229,9 +232,9 @@ def cmd_check(api_key_arg: str | None):
             "status": "no_key",
             "message": "No API key configured",
             "steps": [
-                "1. Register/login at https://www.runninghub.cn",
-                "2. Create API Key at https://www.runninghub.cn/enterprise-api/sharedApi",
-                "3. Recharge wallet at https://www.runninghub.cn/vip-rights/4",
+                f"1. Register/login at https://{RUNNINGHUB_DOMAIN}",
+                f"2. Create API Key at https://{RUNNINGHUB_DOMAIN}/enterprise-api/sharedApi",
+                f"3. Recharge wallet at https://{RUNNINGHUB_DOMAIN}/vip-rights/4",
                 "4. Send the key in chat or add to ~/.openclaw/openclaw.json: skills.entries.runninghub.apiKey",
             ],
         }, ensure_ascii=False))
@@ -253,7 +256,7 @@ def cmd_check(api_key_arg: str | None):
             "key_source": key_source,
             "message": "API key is invalid or expired, or network error",
             "detail": (result.stdout or result.stderr)[:300],
-            "manage_url": "https://www.runninghub.cn/enterprise-api/sharedApi",
+            "manage_url": f"https://{RUNNINGHUB_DOMAIN}/enterprise-api/sharedApi",
         }, ensure_ascii=False))
         return
 
@@ -273,7 +276,7 @@ def cmd_check(api_key_arg: str | None):
             "key_prefix": key_prefix,
             "key_source": key_source,
             "message": resp.get("msg", "API key verification failed"),
-            "manage_url": "https://www.runninghub.cn/enterprise-api/sharedApi",
+            "manage_url": f"https://{RUNNINGHUB_DOMAIN}/enterprise-api/sharedApi",
         }, ensure_ascii=False))
         return
 
@@ -298,7 +301,7 @@ def cmd_check(api_key_arg: str | None):
             "running_tasks": data.get("currentTaskCounts", "0"),
             "api_type": data.get("apiType", ""),
             "message": "Wallet balance is zero. Recharge required.",
-            "recharge_url": "https://www.runninghub.cn/vip-rights/4",
+            "recharge_url": f"https://{RUNNINGHUB_DOMAIN}/vip-rights/4",
         }, ensure_ascii=False))
         return
 
@@ -451,7 +454,7 @@ def poll_task(api_key: str, task_id: str) -> dict:
                 print(json.dumps({
                     "error": "INSUFFICIENT_BALANCE",
                     "message": f"Task failed: {error_msg}",
-                    "recharge_url": "https://www.runninghub.cn/vip-rights/4",
+                    "recharge_url": f"https://{RUNNINGHUB_DOMAIN}/vip-rights/4",
                 }, ensure_ascii=False), file=sys.stderr)
             else:
                 print(json.dumps({

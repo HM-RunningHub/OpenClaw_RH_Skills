@@ -23,7 +23,7 @@ import sys
 import tempfile
 from pathlib import Path
 
-API_HOST = "https://www.runninghub.cn"
+API_HOST = f"https://{os.environ.get('RUNNINGHUB_DOMAIN', 'www.runninghub.ai')}"
 APP_LIST_PATH = "/openapi/v2/aiapp/list"
 NODE_INFO_PATH = "/api/webapp/apiCallDemo"
 UPLOAD_PATH = "/task/openapi/upload"

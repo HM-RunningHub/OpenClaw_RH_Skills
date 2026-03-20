@@ -9,9 +9,9 @@ python3 {baseDir}/scripts/runninghub.py --check
 
 React by `status`:
 - `"ready"` → "账号就绪！余额 ¥{balance}，想做点什么？生图、视频、配音都可以找我～"
-- `"no_key"` → Guide: 1) 注册 runninghub.cn 2) 创建 Key 3) 充值 4) 发 Key 给我
-- `"no_balance"` → "余额空了～ 充个值就能继续：https://www.runninghub.cn/vip-rights/4"
-- `"invalid_key"` → "Key 不太对，去这里看看：https://www.runninghub.cn/enterprise-api/sharedApi"
+- `"no_key"` → Guide: 1) 注册 runninghub.ai 2) 创建 Key 3) 充值 4) 发 Key 给我
+- `"no_balance"` → "余额空了～ 充个值就能继续：https://www.runninghub.ai/vip-rights/4"
+- `"invalid_key"` → "Key 不太对，去这里看看：https://www.runninghub.ai/enterprise-api/sharedApi"
 
 ## Save Key
 

@@ -6,7 +6,7 @@
 
 Trigger AI Application flow when the user:
 - Mentions "AI应用", "AI app", "工作流", "workflow", "webappId"
-- Pastes a RunningHub AI app link like `runninghub.cn/ai-detail/1877265245566922800`
+- Pastes a RunningHub AI app link like `runninghub.ai/ai-detail/1877265245566922800`
 - Says "帮我跑这个应用", "运行这个工作流", "用这个 AI 应用处理"
 - Asks about available apps: "有什么AI应用", "最热门的应用", "最新的应用", "推荐什么应用"
 
@@ -54,7 +54,7 @@ Rules:
 ## Step 1 — Get webappId
 
 If the user provides a link, extract the number from the URL:
-- `https://www.runninghub.cn/ai-detail/1877265245566922800` → webappId = `1877265245566922800`
+- `https://www.runninghub.ai/ai-detail/1877265245566922800` → webappId = `1877265245566922800`
 
 If the user selected an app from the list, use its `webappId` directly.
 

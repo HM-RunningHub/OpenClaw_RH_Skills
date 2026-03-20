@@ -28,7 +28,7 @@ Step 2 — Then respond with `NO_REPLY` (prevents duplicate message).
 
 **NEVER do these**:
 - Print `OUTPUT_FILE:` as first-choice delivery (users see raw text, not a file!)
-- Show `runninghub.cn` URLs (internal, users cannot open)
+- Show `runninghub.ai` URLs (internal, users cannot open)
 - Use `![](...)` markdown images
 - Say "已发送" or "点击下面的附件" without actually calling `message` tool
 
@@ -41,8 +41,8 @@ Print the text directly to user. Include cost if `COST:` line present.
 | Error | Action |
 |-------|--------|
 | `NO_API_KEY` | Guide key setup → Read `{baseDir}/references/api-key-setup.md` |
-| `AUTH_FAILED` | Key expired → https://www.runninghub.cn/enterprise-api/sharedApi |
-| `INSUFFICIENT_BALANCE` | "余额不够啦～" → https://www.runninghub.cn/vip-rights/4 |
+| `AUTH_FAILED` | Key expired → https://www.runninghub.ai/enterprise-api/sharedApi |
+| `INSUFFICIENT_BALANCE` | "余额不够啦～" → https://www.runninghub.ai/vip-rights/4 |
 | `TASK_FAILED` | For video: offer fallback model. For others: show friendly error, offer retry. |
 
 ## General Notes

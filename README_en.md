@@ -2,7 +2,7 @@
 
 [中文](./README.md)
 
-An [OpenClaw](https://github.com/openclaw/openclaw) skill that brings multimedia generation capabilities — including image, video, audio, 3D, and text — to conversational AI, powered by 179 [RunningHub](https://www.runninghub.cn) API endpoints. Built with zero external dependencies (pure Python 3 + curl), it lets users create rich media content through natural language, with support for both standard model APIs and custom ComfyUI workflows (AI Applications).
+An [OpenClaw](https://github.com/openclaw/openclaw) skill that brings multimedia generation capabilities — including image, video, audio, 3D, and text — to conversational AI, powered by 179 [RunningHub](https://www.runninghub.ai) API endpoints. Built with zero external dependencies (pure Python 3 + curl), it lets users create rich media content through natural language, with support for both standard model APIs and custom ComfyUI workflows (AI Applications).
 
 ## Capabilities
 
@@ -35,8 +35,24 @@ The assistant will pull the latest code and reload the skill config. No need to 
 
 ### Prerequisites
 
-- **API Key** — Get one from [RunningHub API Management](https://www.runninghub.cn/enterprise-api/sharedApi) (click "新建")
-- **Wallet balance** — [Recharge here](https://www.runninghub.cn/vip-rights/4) — API calls require funds
+- **API Key** — Get one from [RunningHub API Management](https://www.runninghub.ai/enterprise-api/sharedApi) (click "新建")
+- **Wallet balance** — [Recharge here](https://www.runninghub.ai/vip-rights/4) — API calls require funds
+
+### International / China Domain Switching
+
+The API defaults to the international domain `www.runninghub.ai`. If your server is in mainland China, switch to `www.runninghub.cn`:
+
+**Option 1: Environment variable (recommended, no file changes)**
+```bash
+export RUNNINGHUB_DOMAIN=www.runninghub.cn
+```
+
+**Option 2: Batch patch script**
+```bash
+python3 runninghub/scripts/patch_domain.py --to cn --apply
+```
+
+`patch_domain.py` supports `--to ai` (international) and `--to cn` (China) bidirectional switching. Without `--apply`, it runs in preview/dry-run mode.
 
 ## Usage
 
@@ -47,7 +63,7 @@ Once installed, just talk to your OpenClaw assistant in natural language:
 - *"Create background music for my video"*
 - *"Upscale this image to 4K"*
 - *"Convert this image to a 3D model"*
-- *"Run this AI app: https://www.runninghub.cn/ai-detail/1877265245566922800"*
+- *"Run this AI app: https://www.runninghub.ai/ai-detail/1877265245566922800"*
 - *"What are the hottest AI apps?"*
 - *"Show me the newest AI apps"*
 
