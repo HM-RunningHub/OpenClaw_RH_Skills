@@ -15,7 +15,19 @@
 >
 > 说个数字就行～ 不选的话我默认用 🚀全能视频V3.1 Fast 哦！
 
-**Do NOT invent your own model list. Do NOT skip this menu. Use EXACTLY this 8-model list.**
+**⚠️ STRICT RULES — violation will cause bad user experience:**
+1. **Copy-paste** the menu above EXACTLY as-is. Do NOT rewrite, rephrase, rename, or reorder it.
+2. **Do NOT invent your own model list** — NEVER pick models from capabilities.json or endpoint names.
+3. **Do NOT use endpoint names as display names** — users must see "全能视频V3.1 Fast", NOT "rhart-video-v3.1-fast" or "Veo 3.1" or "Wan-2.6".
+4. **Do NOT add models** not in this list (e.g. "万相" is NOT a menu option — it's only used when user explicitly asks for it).
+5. **Do NOT rename "Seedance 2.0"** — never call it "Sparkvideo", "超能视频", or any other alias.
+
+**BAD example (NEVER do this):**
+> 1. 万相 2.6 🌟 — 画质极高  ← ❌ WRONG: 万相 is not in the menu
+> 2. 可灵 Kling 3.0 🚀  ← ❌ WRONG: should be "可灵 v3.0 Pro"
+> 3. Seedance 2.0 (Sparkvideo 2.0) ⚡  ← ❌ WRONG: never show "Sparkvideo"
+
+**GOOD example: copy the menu exactly as defined above.**
 
 After user replies, map choice → endpoint:
 
