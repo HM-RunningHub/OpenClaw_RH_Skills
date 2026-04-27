@@ -1,7 +1,266 @@
 {
-  "version": "2026-04-08",
-  "total": 222,
+  "version": "2026-04-28",
+  "total": 275,
   "endpoints": [
+    {
+      "endpoint": "minimax/voice-design",
+      "name_cn": "minimax-音色设计",
+      "name_en": "minimax/voice-design",
+      "task": "audio-other",
+      "output_type": "audio",
+      "category": "RunningHub/MiniMax",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "充满激情和活力的体育赛事解说员，语速快，音量高，能够点燃现场气氛"
+        },
+        {
+          "key": "previewText",
+          "type": "STRING",
+          "required": true,
+          "default": "漂亮！一个精彩的过人！他带球突破，射门——球进了！不可思议的进球，他再次拯救了队伍！",
+          "maxLength": 500
+        },
+        {
+          "key": "voiceId",
+          "type": "STRING",
+          "required": false
+        },
+        {
+          "key": "aigcWatermark",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        }
+      ]
+    },
+    {
+      "endpoint": "rhart-audio/suno-v5.5/single",
+      "name_cn": "suno-single-v5.5",
+      "name_en": "suno-single-v5.5",
+      "task": "audio-other",
+      "output_type": "audio",
+      "category": "RunningHub/RHArt Audio",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "title",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 80
+        },
+        {
+          "key": "description",
+          "type": "STRING",
+          "required": true,
+          "default": "中国古典，琵琶+古琴，宁静，慢速，纯音乐",
+          "maxLength": 400
+        },
+        {
+          "key": "make_instrumental",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "endpoint": "rhart-audio/suno-v5.5/custom",
+      "name_cn": "suno-custom-v5.5",
+      "name_en": "suno-custom-v5.5",
+      "task": "audio-other",
+      "output_type": "audio",
+      "category": "RunningHub/RHArt Audio",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "title",
+          "type": "STRING",
+          "required": true,
+          "default": "心字香",
+          "maxLength": 80
+        },
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "[Intro] 你记得我吗 不想听这些  [Verse] 红灯是桃花 桃花飘飘 白马披铁甲 铁甲销销 你放下我吧 听说你放下我了 再也不爱了吗  [Pre-Chorus] 心字香 熄了两行 多漂亮 多绝望  [Chorus] 我问佛前菩萨 他说忘了 爱得又怎样 都是命吧 如果能有下辈子 我们在一起",
+          "maxLength": 5000
+        },
+        {
+          "key": "tags",
+          "type": "STRING",
+          "required": true,
+          "default": "流行,民谣,旋律,电影感,女声",
+          "maxLength": 1000
+        }
+      ]
+    },
+    {
+      "endpoint": "rhart-audio/suno/lyrics",
+      "name_cn": "suno-歌词生成",
+      "name_en": "suno-lyrics",
+      "task": "audio-other",
+      "output_type": "audio",
+      "category": "RunningHub/RHArt Audio",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "描述个人面对成长后的平静，励志，娓娓道来的感觉",
+          "maxLength": 500
+        }
+      ]
+    },
+    {
+      "endpoint": "rhart-audio/suno-v5/single",
+      "name_cn": "suno-single-v5",
+      "name_en": "suno-single-v5",
+      "task": "audio-other",
+      "output_type": "audio",
+      "category": "RunningHub/RHArt Audio",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "title",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 80
+        },
+        {
+          "key": "description",
+          "type": "STRING",
+          "required": true,
+          "default": "中国传统民谣，70 BPM，古筝琶音，笛子独奏，柔和女声，五声音阶，古代宫殿，月光，诗意，忧郁，重混响。",
+          "maxLength": 400
+        },
+        {
+          "key": "make_instrumental",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "endpoint": "rhart-audio/suno-v5/custom",
+      "name_cn": "suno-custom-v5",
+      "name_en": "suno-custom-v5",
+      "task": "audio-other",
+      "output_type": "audio",
+      "category": "RunningHub/RHArt Audio",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "title",
+          "type": "STRING",
+          "required": true,
+          "default": "峨眉风光",
+          "maxLength": 80
+        },
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "[Verse] 对镜松柏云雾长 映水白练玉桥扬 如画层峦风雨荡 落笔青山谁能仿  [Chorus] 千载古道神道苍 白云藏 清风扬 佛光降  [Verse 2] 栖息峨眉心气爽 道骨天赐仙姿象 不惧浮云遮望眼 自缘身在最高层  [Chorus] 千载古道神道苍 白云藏 清风扬 佛光降",
+          "maxLength": 5000
+        },
+        {
+          "key": "tags",
+          "type": "STRING",
+          "required": true,
+          "default": "中国风，电影感，管弦乐",
+          "maxLength": 1000
+        }
+      ]
+    },
+    {
+      "endpoint": "rhart-audio/suno-v4.5/single",
+      "name_cn": "suno-single-v4.5",
+      "name_en": "suno-single-v4.5",
+      "task": "audio-other",
+      "output_type": "audio",
+      "category": "RunningHub/RHArt Audio",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "title",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 80
+        },
+        {
+          "key": "description",
+          "type": "STRING",
+          "required": true,
+          "default": "科幻氛围，70 BPM，空灵合成器垫，粒状纹理，深沉低音，未来感声音设计，广阔，空旷，零重力，神秘。",
+          "maxLength": 400
+        },
+        {
+          "key": "make_instrumental",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "false",
+            "true"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "endpoint": "rhart-audio/suno-v4.5/custom",
+      "name_cn": "suno-custom-v4.5",
+      "name_en": "suno-custom-v4.5",
+      "task": "audio-other",
+      "output_type": "audio",
+      "category": "RunningHub/RHArt Audio",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "title",
+          "type": "STRING",
+          "required": true,
+          "default": "光",
+          "maxLength": 80
+        },
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "[Verse] 心早有预感 光速地飙燃 浑然不知山前的悬崖 生而无惧是少年 不知光阴有限  [Pre-Chorus] 想哭想笑时 都痛痛快快 全然不理会谁给的评价 只怕一瞬不如愿 失去重要片段",
+          "maxLength": 5000
+        },
+        {
+          "key": "tags",
+          "type": "STRING",
+          "required": true,
+          "default": "流行, 娓娓道来,中文",
+          "maxLength": 1000
+        }
+      ]
+    },
     {
       "endpoint": "rhart-image/f-dev",
       "name_cn": "f-dev",
@@ -23,6 +282,45 @@
       "popularity": 99,
       "tags": [],
       "params": []
+    },
+    {
+      "endpoint": "rhart-image-g-1.5/edit-[Deprecated]",
+      "name_cn": "全能图片G-1.5-图生图-低价渠道版-(已下架) 可用全能图片G-2 模型代替",
+      "name_en": "gpt-image-1.5/edit-channel-low-price-[Deprecated] Please use gpt-image-2 instead",
+      "task": "image-other",
+      "output_type": "image",
+      "category": "RunningHub/RHArt Image",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "背景突然发生剧烈爆炸，火光冲天，浓烟翻滚，碎片四溅。前景中的三人瞬间惊慌失措：一人张大嘴巴尖叫，一人下意识抬手遮挡冲击波，第三人踉跄后退、眼神恐惧。强光从背后照亮他们的轮廓，脸上映出橙红色火光，表情极度惊恐，整体氛围紧张、混乱而真实。",
+          "maxLength": 800
+        },
+        {
+          "key": "imageUrls",
+          "type": "IMAGE",
+          "required": true,
+          "multiple": true,
+          "maxCount": 2,
+          "maxSizeMB": 10
+        },
+        {
+          "key": "aspectRatio",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "auto",
+            "1:1",
+            "3:2",
+            "2:3"
+          ],
+          "default": "2:3"
+        }
+      ]
     },
     {
       "endpoint": "hunyuan3d-v3.1/image-to-3d",
@@ -390,51 +688,9 @@
           "options": [
             "1k",
             "2k",
-            "4k",
-            "1K",
-            "2K",
-            "4K"
+            "4k"
           ],
           "default": "1k"
-        }
-      ]
-    },
-    {
-      "endpoint": "rhart-image-g-1.5/edit",
-      "name_cn": "全能图片G-1.5-图生图-低价渠道版",
-      "name_en": "gpt-image-1.5/edit-channel-low-price",
-      "task": "image-to-image",
-      "output_type": "image",
-      "category": "RunningHub/RHArt Image",
-      "popularity": 2,
-      "tags": [],
-      "params": [
-        {
-          "key": "prompt",
-          "type": "STRING",
-          "required": true,
-          "default": "背景突然发生剧烈爆炸，火光冲天，浓烟翻滚，碎片四溅。前景中的三人瞬间惊慌失措：一人张大嘴巴尖叫，一人下意识抬手遮挡冲击波，第三人踉跄后退、眼神恐惧。强光从背后照亮他们的轮廓，脸上映出橙红色火光，表情极度惊恐，整体氛围紧张、混乱而真实。",
-          "maxLength": 800
-        },
-        {
-          "key": "imageUrls",
-          "type": "IMAGE",
-          "required": true,
-          "multiple": true,
-          "maxCount": 2,
-          "maxSizeMB": 10
-        },
-        {
-          "key": "aspectRatio",
-          "type": "LIST",
-          "required": true,
-          "options": [
-            "auto",
-            "1:1",
-            "3:2",
-            "2:3"
-          ],
-          "default": "2:3"
         }
       ]
     },
@@ -572,7 +828,8 @@
           "key": "prompt",
           "type": "STRING",
           "required": true,
-          "default": "海边沙滩变成夏日祭典现场：猴子戴着纸折小帽，小香蕉插着蜡烛当作“生日蛋糕”，周围有彩旗、西瓜、贝壳风铃。其他小猴子在远处玩耍，烟花在晴空中绽放。风格欢乐卡通，色彩缤纷。"
+          "default": "海边沙滩变成夏日祭典现场：猴子戴着纸折小帽，小香蕉插着蜡烛当作“生日蛋糕”，周围有彩旗、西瓜、贝壳风铃。其他小猴子在远处玩耍，烟花在晴空中绽放。风格欢乐卡通，色彩缤纷。",
+          "maxLength": 20000
         },
         {
           "key": "resolution",
@@ -632,7 +889,7 @@
           "type": "STRING",
           "required": true,
           "default": "将人类主体替换为一只穿着白色实验服、戴着圆框眼镜的高智商黑猩猩。修改平板电脑屏幕，使其显示一幅精细的香蕉树植物插图，并配以简洁的无衬线字体文字“Organic Growth”及其中文翻译“有机生长”。将当前的冷色调室内光线改为温暖、充满阳光的早晨氛围。调整相机参数为 35mm 透视，保持焦点锐利地对准黑猩猩好奇的眼睛，并维持实验室风格的一致性。",
-          "maxLength": 4000
+          "maxLength": 20000
         },
         {
           "key": "resolution",
@@ -889,7 +1146,8 @@
           "key": "prompt",
           "type": "STRING",
           "required": true,
-          "default": "Replace the dragon fruit in the image with an adorable, stylized monkey that matches the original artistic style and texture."
+          "default": "Replace the dragon fruit in the image with an adorable, stylized monkey that matches the original artistic style and texture.",
+          "maxLength": 20000
         },
         {
           "key": "aspectRatio",
@@ -1087,7 +1345,8 @@
           "key": "prompt",
           "type": "STRING",
           "required": true,
-          "default": "操作指令： 参考我上传的这张人物线稿图。必须百分之百忠实于原线稿的线条结构，不得有任何线条的增加或减少。 上色要求： 将其处理成一种复古的日式赛博朋克漫画风格。给头发上色为淡紫色，皮肤为自然的暖色调，衣服赋予银色金属涂层质感。 背景与光影： 背景是一个霓虹闪烁的雨后街道。让蓝绿色的霓虹灯光作为主光源，映射在人物身体的左侧，形成细腻的拉丝晕光。"
+          "default": "操作指令： 参考我上传的这张人物线稿图。必须百分之百忠实于原线稿的线条结构，不得有任何线条的增加或减少。 上色要求： 将其处理成一种复古的日式赛博朋克漫画风格。给头发上色为淡紫色，皮肤为自然的暖色调，衣服赋予银色金属涂层质感。 背景与光影： 背景是一个霓虹闪烁的雨后街道。让蓝绿色的霓虹灯光作为主光源，映射在人物身体的左侧，形成细腻的拉丝晕光。",
+          "maxLength": 20000
         },
         {
           "key": "aspectRatio",
@@ -1155,7 +1414,6 @@
           "type": "LIST",
           "required": true,
           "options": [
-            "auto",
             "1024*1024",
             "1024*1536",
             "1536*1024"
@@ -1181,6 +1439,17 @@
             "low",
             "high"
           ]
+        },
+        {
+          "key": "background",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "auto",
+            "transparent",
+            "opaque"
+          ],
+          "default": "auto"
         }
       ]
     },
@@ -1200,7 +1469,8 @@
           "key": "prompt",
           "type": "STRING",
           "required": true,
-          "default": "将人物手中的普通折扇替换为一把精致的白玉骨丝绸团扇，并在背景的木质回廊上悬挂两盏点亮的红灯笼。请保持原图明代官服的丝绸质感与阴影走势完全不变。"
+          "default": "将人物手中的普通折扇替换为一把精致的白玉骨丝绸团扇，并在背景的木质回廊上悬挂两盏点亮的红灯笼。请保持原图明代官服的丝绸质感与阴影走势完全不变。",
+          "maxLength": 20000
         },
         {
           "key": "aspectRatio",
@@ -1533,6 +1803,230 @@
       ]
     },
     {
+      "endpoint": "alibaba/wan-2.5-preview/image-to-image",
+      "name_cn": "万相2.5 Preview 图生图",
+      "name_en": "wan-2.5-preview/image-to-image",
+      "task": "image-to-image",
+      "output_type": "image",
+      "category": "RunningHub/Wan",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "把这张照片的背景换成白天，阳光明媚",
+          "maxLength": 2000
+        },
+        {
+          "key": "imageUrls",
+          "type": "IMAGE",
+          "required": true,
+          "multiple": true,
+          "maxCount": 3,
+          "maxSizeMB": 10
+        },
+        {
+          "key": "negativePrompt",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 500
+        },
+        {
+          "key": "size",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "1280*1280",
+            "1024*1024",
+            "800*1200",
+            "1200*800",
+            "960*1280",
+            "1280*960",
+            "720*1280",
+            "1280*720",
+            "1344*576"
+          ],
+          "default": "1280*1280"
+        },
+        {
+          "key": "n",
+          "type": "INT",
+          "required": true,
+          "default": 1,
+          "min": 1,
+          "max": 4
+        },
+        {
+          "key": "promptExtend",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": true
+        },
+        {
+          "key": "seed",
+          "type": "INT",
+          "required": false,
+          "min": -1,
+          "max": 2147483647
+        }
+      ]
+    },
+    {
+      "endpoint": "rhart-image-g-2/image-to-image",
+      "name_cn": "全能图片G-2.0-图生图-低价渠道版",
+      "name_en": "gpt-image-2.0/edit-channel-low-price",
+      "task": "image-to-image",
+      "output_type": "image",
+      "category": "RunningHub/RHArt Image",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "在马克杯的正中央，添加一个精致的几何风格狐狸 Logo，Logo 下方清晰地印着文字 \"Wild Fox\"。请保持原图的光影结构和陶瓷质感完全不变。 然后生成一张产品介绍说明书，比例为21：9",
+          "maxLength": 20000
+        },
+        {
+          "key": "imageUrls",
+          "type": "IMAGE",
+          "required": true,
+          "multiple": true,
+          "maxCount": 10,
+          "maxSizeMB": 10
+        },
+        {
+          "key": "aspectRatio",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "empty",
+            "3:2",
+            "1:1",
+            "2:3",
+            "5:4",
+            "4:5",
+            "16:9",
+            "9:16",
+            "21:9",
+            "3:4",
+            "4:3"
+          ],
+          "default": "empty"
+        },
+        {
+          "key": "resolution",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "1k",
+            "2k",
+            "4k"
+          ],
+          "default": "1k"
+        }
+      ]
+    },
+    {
+      "endpoint": "rhart-image-g-2-official/image-to-image",
+      "name_cn": "全能图片G-2-图生图-官方稳定版",
+      "name_en": "gpt-image-2/image-to-image-official-stable",
+      "task": "image-to-image",
+      "output_type": "image",
+      "category": "RunningHub/RHArt Image",
+      "popularity": 99,
+      "tags": [
+        "official"
+      ],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "将这个客厅彻底改造为“植物园温室”风格。把原有的沙发替换成复古的绿色天鹅绒材质，墙面变成做旧的红砖墙。整个房间内挂满茂盛的热带藤蔓植物，阳光透过巨大的玻璃穹顶洒在地毯上。保持房间原本的物理空间大小、门窗位置以及家具的摆放结构完全不变。",
+          "maxLength": 20000
+        },
+        {
+          "key": "imageUrls",
+          "type": "IMAGE",
+          "required": true,
+          "multiple": true,
+          "maxCount": 10,
+          "maxSizeMB": 10
+        },
+        {
+          "key": "aspectRatio",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "1:1",
+            "2:3",
+            "3:2",
+            "3:4",
+            "4:3",
+            "4:5",
+            "5:4",
+            "9:16",
+            "16:9",
+            "21:9"
+          ],
+          "default": "16:9"
+        },
+        {
+          "key": "resolution",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "1k",
+            "2k",
+            "4k"
+          ],
+          "default": "2k"
+        },
+        {
+          "key": "quality",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "low",
+            "medium",
+            "high"
+          ],
+          "default": "medium"
+        }
+      ]
+    },
+    {
+      "endpoint": "rhart-image-x-official/edit",
+      "name_cn": "全能图片X-图片编辑-官方稳定版",
+      "name_en": "xai/grok-imagine-image/edit-official-stable",
+      "task": "image-to-image",
+      "output_type": "image",
+      "category": "RunningHub/RHArt Image",
+      "popularity": 99,
+      "tags": [
+        "official"
+      ],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "把图中女孩的衣服换成夏季的连衣裙",
+          "maxLength": 20000
+        },
+        {
+          "key": "image",
+          "type": "IMAGE",
+          "required": true,
+          "maxSizeMB": 10
+        }
+      ]
+    },
+    {
       "endpoint": "rhart-text-g-3-flash-preview/image-to-text",
       "name_cn": "rhart-text-g-3-flash-preview/image-to-text",
       "name_en": "rhart-text-g-3-flash-preview/image-to-text",
@@ -1634,6 +2128,107 @@
       ]
     },
     {
+      "endpoint": "rhart-text-g-3-pro-preview-cv/image-to-text",
+      "name_cn": "rhart-text-g-3-pro-preview-cv/image-to-text",
+      "name_en": "rhart-text-g-3-pro-preview-cv/image-to-text",
+      "task": "image-to-text",
+      "output_type": "string",
+      "category": "RunningHub/RHArt Text",
+      "popularity": 99,
+      "tags": [
+        "pro"
+      ],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "请详细描述这些图像的内容。如果图像中有任何你熟悉的人物，如名人、电影角色或动画人物，请直接使用他们的名字。描述应该尽可能详细。"
+        },
+        {
+          "key": "imageUrl",
+          "type": "IMAGE",
+          "required": true,
+          "maxSizeMB": 30
+        }
+      ]
+    },
+    {
+      "endpoint": "rhart-text-g-25-flash-cv/image-to-text",
+      "name_cn": "rhart-text-g-25-flash-cv/image-to-text",
+      "name_en": "rhart-text-g-25-flash-cv/image-to-text ",
+      "task": "image-to-text",
+      "output_type": "string",
+      "category": "RunningHub/RHArt Text",
+      "popularity": 99,
+      "tags": [
+        "fast"
+      ],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true
+        },
+        {
+          "key": "imageUrl",
+          "type": "IMAGE",
+          "required": true,
+          "maxSizeMB": 30
+        }
+      ]
+    },
+    {
+      "endpoint": "rhart-text-g-3-flash-preview-cv/image-to-text",
+      "name_cn": "rhart-text-g-3-flash-preview-cv/image-to-text",
+      "name_en": "rhart-text-g-3-flash-preview-cv/image-to-text",
+      "task": "image-to-text",
+      "output_type": "string",
+      "category": "RunningHub/RHArt Text",
+      "popularity": 99,
+      "tags": [
+        "fast"
+      ],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true
+        },
+        {
+          "key": "imageUrl",
+          "type": "IMAGE",
+          "required": true,
+          "maxSizeMB": 30
+        }
+      ]
+    },
+    {
+      "endpoint": "rhart-text-g-25-pro-cv/image-to-text",
+      "name_cn": "rhart-text-g-25-pro-cv/image-to-text",
+      "name_en": "rhart-text-g-25-pro-cv/image-to-text",
+      "task": "image-to-text",
+      "output_type": "string",
+      "category": "RunningHub/RHArt Text",
+      "popularity": 99,
+      "tags": [
+        "pro"
+      ],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true
+        },
+        {
+          "key": "imageUrl",
+          "type": "IMAGE",
+          "required": true,
+          "maxSizeMB": 30
+        }
+      ]
+    },
+    {
       "endpoint": "rhart-video-s/image-to-video",
       "name_cn": "全能视频S-图生视频-低价渠道版",
       "name_en": "sora-2/image-to-video-channel-low-price",
@@ -1675,59 +2270,6 @@
           "required": true,
           "default": "基于原图生成10秒动态视频，角色使用地道男声京腔配音，语气带点胡同大爷的调侃劲儿。 0–2秒：狸花猫翘着二郎腿，爪尖轻敲桌面，斜眼笑：“咱这节目今天炸了啊！” 2–5秒：哈士奇一愣，领结歪了也不管，急问：“真的啊？咱上热搜了？” 5–10秒：哈士奇瞬间石化，瞳孔地震；狸花猫憋不住，“噗”地笑出声，拍桌打滚，耳机滑到耳朵尖，背景霓虹灯“Whisker & Howl”同步闪红——全场爆笑收尾！",
           "maxLength": 4000
-        },
-        {
-          "key": "storyboard",
-          "type": "BOOLEAN",
-          "required": false,
-          "default": false
-        }
-      ]
-    },
-    {
-      "endpoint": "rhart-video-s/image-to-video-pro",
-      "name_cn": "全能视频S-图生视频-pro-低价渠道版",
-      "name_en": "sora-2/image-to-video-pro-channel-low-price",
-      "task": "image-to-video",
-      "output_type": "video",
-      "category": "RunningHub/RHArt Video",
-      "popularity": 2,
-      "tags": [
-        "pro"
-      ],
-      "params": [
-        {
-          "key": "prompt",
-          "type": "STRING",
-          "required": true,
-          "default": "一只毛茸茸的白色小兔子站在森林里温馨的小木屋门前，眼睛亮晶晶，开心地挥着爪子说：“欢迎大家来我家玩！”阳光透过树叶洒在它身上，周围有野花和蝴蝶飞舞。镜头采用柔和近景，氛围温暖可爱，风格类似儿童绘本动画。",
-          "maxLength": 4000
-        },
-        {
-          "key": "imageUrl",
-          "type": "IMAGE",
-          "required": true,
-          "maxSizeMB": 50
-        },
-        {
-          "key": "duration",
-          "type": "LIST",
-          "required": true,
-          "options": [
-            "15",
-            "25"
-          ],
-          "default": "15"
-        },
-        {
-          "key": "aspectRatio",
-          "type": "LIST",
-          "required": true,
-          "options": [
-            "9:16",
-            "16:9"
-          ],
-          "default": "9:16"
         },
         {
           "key": "storyboard",
@@ -1879,7 +2421,7 @@
           "type": "STRING",
           "required": true,
           "default": "欧洲别墅户外露台场景，铺着蓝白格纹桌布的餐桌旁，年轻白人女性穿蓝白条纹短袖衬衫、卡其色短裤，系棕色腰带，赤脚坐着，对面是穿白色 T 恤的年轻白人男性，镜头推进，女性晃着玻璃杯里的果汁，目光望向远处的树林，说“These trees will turn yellow in a month, won't they?”，镜头特写男性低着头说，“but they'll be green again next summer.”，然后女性转头，笑着看向对面的男性，说，“Are you always this optimistic? Or just about summer?”，然后男性抬起头，看着女生说，“Only about summers with you。”",
-          "maxLength": 5000
+          "maxLength": 2500
         },
         {
           "key": "negativePrompt",
@@ -1969,7 +2511,7 @@
           "type": "STRING",
           "required": true,
           "default": "动作描述： 探险家缓缓抬头，眼神中充满惊讶。随着他慢慢起身，手中的碎片光芒逐渐加强，并在石门上产生流动的阴影效果。 对话（配音 1）： “它真的被唤醒了……这不可能。” 音效（同步生成）： 柴火噼啪声，探险家沉重的呼吸声，以及石门深处传来的低沉轰鸣声。",
-          "maxLength": 5000
+          "maxLength": 2500
         },
         {
           "key": "negativePrompt",
@@ -2059,7 +2601,7 @@
           "type": "STRING",
           "required": true,
           "default": "少女从街道深处款款走，裙摆随步伐自然摆动。镜头伴随她前进，街道两旁的红灯笼随风轻摇。在 10 秒处，她驻足转身，回眸一笑，背景的天空中绽放出绚丽的烟花，光影交错映射在她的脸上。 音效：包含繁华街道的喧闹声、少女轻盈的脚步声以及远处烟花炸裂的轰鸣声。",
-          "maxLength": 5000
+          "maxLength": 2500
         },
         {
           "key": "firstImageUrl",
@@ -2122,7 +2664,7 @@
           "type": "STRING",
           "required": true,
           "default": "动作描述：探险家缓缓向城市深处走去，风吹过斗篷产生自然的布料物理摆动。随着脚步前进，周围的废墟阴影随光线位置产生实时偏移。探险家发现晶体并驻足，蓝色光芒在头盔面罩上产生清晰的反射。 音效（同步生成）： 沉重的机甲脚步声，呼啸的风沙声，探测器规律的哔哔声，以及最后晶体发出的低频嗡鸣声。",
-          "maxLength": 5000
+          "maxLength": 2500
         },
         {
           "key": "firstImageUrl",
@@ -2736,7 +3278,7 @@
         {
           "key": "imageUrl",
           "type": "IMAGE",
-          "required": false,
+          "required": true,
           "maxSizeMB": 10
         },
         {
@@ -4252,7 +4794,7 @@
           "key": "prompt",
           "type": "STRING",
           "required": false,
-          "maxLength": 2048
+          "maxLength": 20480
         },
         {
           "key": "resolution",
@@ -4261,6 +4803,7 @@
           "options": [
             "480p",
             "720p",
+            "native1080p",
             "1080p",
             "2k",
             "4k"
@@ -4319,6 +4862,12 @@
             "21:9"
           ],
           "default": "adaptive"
+        },
+        {
+          "key": "returnLastFrame",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
         }
       ]
     },
@@ -4338,7 +4887,7 @@
           "key": "prompt",
           "type": "STRING",
           "required": false,
-          "maxLength": 2048
+          "maxLength": 20480
         },
         {
           "key": "resolution",
@@ -4347,6 +4896,7 @@
           "options": [
             "480p",
             "720p",
+            "native1080p",
             "1080p",
             "2k",
             "4k"
@@ -4405,6 +4955,12 @@
             "21:9"
           ],
           "default": "adaptive"
+        },
+        {
+          "key": "returnLastFrame",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
         }
       ]
     },
@@ -4480,6 +5036,777 @@
             "15"
           ],
           "default": "5"
+        },
+        {
+          "key": "promptExtend",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": true
+        },
+        {
+          "key": "seed",
+          "type": "INT",
+          "required": false,
+          "min": 0,
+          "max": 2147483647
+        }
+      ]
+    },
+    {
+      "endpoint": "rhart-video-s/image-to-video-pro-deprecated",
+      "name_cn": "全能视频S-图生视频-pro-低价渠道版-已下架",
+      "name_en": "sora-2/image-to-video-pro-channel-low-price",
+      "task": "image-to-video",
+      "output_type": "video",
+      "category": "RunningHub/RHArt Video",
+      "popularity": 99,
+      "tags": [
+        "pro"
+      ],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "一只毛茸茸的白色小兔子站在森林里温馨的小木屋门前，眼睛亮晶晶，开心地挥着爪子说：“欢迎大家来我家玩！”阳光透过树叶洒在它身上，周围有野花和蝴蝶飞舞。镜头采用柔和近景，氛围温暖可爱，风格类似儿童绘本动画。",
+          "maxLength": 4000
+        },
+        {
+          "key": "imageUrl",
+          "type": "IMAGE",
+          "required": true,
+          "maxSizeMB": 50
+        },
+        {
+          "key": "duration",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "15",
+            "25"
+          ],
+          "default": "15"
+        },
+        {
+          "key": "aspectRatio",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "9:16",
+            "16:9"
+          ],
+          "default": "9:16"
+        },
+        {
+          "key": "storyboard",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        }
+      ]
+    },
+    {
+      "endpoint": "pixverse-v6/image-to-video",
+      "name_cn": "PixVerse V6 图生视频",
+      "name_en": "pixverse-v6/image-to-video",
+      "task": "image-to-video",
+      "output_type": "video",
+      "category": "RunningHub/PixVerse",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "imageUrl",
+          "type": "IMAGE",
+          "required": true,
+          "maxSizeMB": 10
+        },
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "一个快乐的四口之家在阳光明媚的沙滩上玩耍。母亲穿着白色背心、牛仔短裤和太阳镜，温暖地微笑着低头看着她的孩子们。父亲穿着白色T恤和薄荷绿色短裤，身体前倾，调皮地伸手想抓向蹒跚学步的孩子。年长的男孩穿着白色T恤和蓝色短裤，好奇地走近母亲。年幼的蹒跚学步孩子穿着白色T恤和薄荷色短裤，兴奋地向父亲跳来，双臂张开。轻柔的海风轻拂着母亲的头发。孩子们笑着玩耍，赤脚踩在沙子上轻轻扬起。背景中，碧绿的海岸线缓缓卷起海浪。温暖的金色阳光，晴朗的蓝天。镜头缓慢推近，画面富有电影感与温暖感，浅景深，家庭生活风格摄影。",
+          "maxLength": 2048
+        },
+        {
+          "key": "resolution",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "360p",
+            "540p",
+            "720p",
+            "1080p"
+          ],
+          "default": "720p"
+        },
+        {
+          "key": "duration",
+          "type": "INT",
+          "required": true,
+          "default": 5,
+          "min": 1,
+          "max": 15
+        },
+        {
+          "key": "generateAudioSwitch",
+          "type": "BOOLEAN",
+          "required": true,
+          "default": true
+        }
+      ]
+    },
+    {
+      "endpoint": "alibaba/wan-2.5-preview/image-to-video",
+      "name_cn": "万相2.5 Preview 图生视频",
+      "name_en": "wan-2.5-preview/image-to-video",
+      "task": "image-to-video",
+      "output_type": "video",
+      "category": "RunningHub/Wan",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": false,
+          "default": "现代都市夜景中的双人武术对决。镜头结构：先用广角展示空旷街巷与两人对峙，再用中景跟拍攻防节奏，关键打击点使用近景特写（拳脚命中、呼吸、肌肉发力）。加入低机位环绕、越肩镜头与快速平移，突出招式路线和空间关系。动作要符合真实重心与反作用力，避免漂浮感。灯光采用路灯+霓虹反射，地面有轻微积水与反光，整体风格写实、紧张、有电影感。",
+          "maxLength": 1500
+        },
+        {
+          "key": "imageUrl",
+          "type": "IMAGE",
+          "required": true,
+          "maxSizeMB": 10
+        },
+        {
+          "key": "audioUrl",
+          "type": "AUDIO",
+          "required": false,
+          "maxSizeMB": 15
+        },
+        {
+          "key": "negativePrompt",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 500
+        },
+        {
+          "key": "duration",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "5",
+            "10"
+          ],
+          "default": "5"
+        },
+        {
+          "key": "resolution",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "480p",
+            "720p",
+            "1080p"
+          ],
+          "default": "1080p"
+        },
+        {
+          "key": "promptExtend",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": true
+        },
+        {
+          "key": "seed",
+          "type": "INT",
+          "required": false,
+          "min": 0,
+          "max": 2147483647
+        }
+      ]
+    },
+    {
+      "endpoint": "bytedance/seedance-2.0-global/image-to-video",
+      "name_cn": "seedance2.0-global/图生视频",
+      "name_en": "seedance-2.0-global/image-to-video",
+      "task": "image-to-video",
+      "output_type": "video",
+      "category": "RunningHub/Seedance",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": false,
+          "default": "在一个温馨、阳光充足的书店里，一位年轻女子静静地阅读着。当她翻动一页时，印刷的文字轻轻地从纸上飞起，变成微小的发光蝴蝶，在她的头顶飞舞片刻后消失。一本古老的书散发出柔和的光芒。这一幕安静而静止，捕捉到了这个宁静的奇迹。",
+          "maxLength": 20480
+        },
+        {
+          "key": "resolution",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "480p",
+            "720p",
+            "native1080p",
+            "1080p",
+            "2k",
+            "4k"
+          ],
+          "default": "720p"
+        },
+        {
+          "key": "duration",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15"
+          ],
+          "default": "5"
+        },
+        {
+          "key": "firstFrameUrl",
+          "type": "IMAGE",
+          "required": true,
+          "maxSizeMB": 30
+        },
+        {
+          "key": "lastFrameUrl",
+          "type": "IMAGE",
+          "required": false,
+          "maxSizeMB": 30
+        },
+        {
+          "key": "generateAudio",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": true
+        },
+        {
+          "key": "ratio",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "adaptive",
+            "16:9",
+            "4:3",
+            "1:1",
+            "3:4",
+            "9:16",
+            "21:9"
+          ],
+          "default": "adaptive"
+        },
+        {
+          "key": "realPersonMode",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": true
+        },
+        {
+          "key": "conversionSlots",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "all",
+            "firstFrameUrl",
+            "lastFrameUrl"
+          ],
+          "default": "all"
+        },
+        {
+          "key": "returnLastFrame",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        }
+      ]
+    },
+    {
+      "endpoint": "bytedance/seedance-2.0-global-fast/image-to-video",
+      "name_cn": "seedance2.0-global-fast/图生视频",
+      "name_en": "seedance-2.0-global-fast/image-to-video",
+      "task": "image-to-video",
+      "output_type": "video",
+      "category": "RunningHub/Seedance",
+      "popularity": 99,
+      "tags": [
+        "fast"
+      ],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": false,
+          "default": "风越来越大，把他的夹克压在胸前，头发被风吹得向一侧飞舞。他调整相机角度，稍微向下倾斜——下面，城市的交通在金色的寂静中缓慢移动。一群鸽子从他下方的檐台上飞出，在天际线上划出一个大弧。他透过取景器跟踪它们，缓缓转动身体。太阳又落下一度——光线从琥珀色变成深铜色，映照在他的脸上。他放下相机。用裸眼注视城市片刻。然后再次举起相机。相机缓缓向前移动，缩短与他之间的距离。",
+          "maxLength": 20480
+        },
+        {
+          "key": "resolution",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "480p",
+            "720p",
+            "1080p",
+            "2k",
+            "4k"
+          ],
+          "default": "720p"
+        },
+        {
+          "key": "duration",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15"
+          ],
+          "default": "5"
+        },
+        {
+          "key": "firstFrameUrl",
+          "type": "IMAGE",
+          "required": true,
+          "maxSizeMB": 30
+        },
+        {
+          "key": "lastFrameUrl",
+          "type": "IMAGE",
+          "required": false,
+          "maxSizeMB": 30
+        },
+        {
+          "key": "generateAudio",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": true
+        },
+        {
+          "key": "ratio",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "adaptive",
+            "16:9",
+            "4:3",
+            "1:1",
+            "3:4",
+            "9:16",
+            "21:9"
+          ],
+          "default": "adaptive"
+        },
+        {
+          "key": "realPersonMode",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": true
+        },
+        {
+          "key": "conversionSlots",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "all",
+            "firstFrameUrl",
+            "lastFrameUrl"
+          ],
+          "default": "all"
+        },
+        {
+          "key": "returnLastFrame",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        }
+      ]
+    },
+    {
+      "endpoint": "rhart-video-v3.1-lite-official/image-to-video",
+      "name_cn": "全能视频V3.1-Lite图生视频-官方稳定版",
+      "name_en": "google/veo3.1-lite/image-to-video-official-stable",
+      "task": "image-to-video",
+      "output_type": "video",
+      "category": "RunningHub/RHArt Video",
+      "popularity": 99,
+      "tags": [
+        "official"
+      ],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "四个朋友开着一辆旧面包车穿越沙漠，窗户开着，头发迎风飞舞。温暖的尘土色调，公路旅行音乐氛围，镜头耀斑，自由的感觉。",
+          "maxLength": 20000
+        },
+        {
+          "key": "negativePrompt",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 20000
+        },
+        {
+          "key": "imageUrl",
+          "type": "IMAGE",
+          "required": true,
+          "maxSizeMB": 20
+        },
+        {
+          "key": "aspectRatio",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "16:9",
+            "9:16"
+          ],
+          "default": "16:9"
+        },
+        {
+          "key": "duration",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "4",
+            "6",
+            "8"
+          ],
+          "default": "6"
+        },
+        {
+          "key": "resolution",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "720p",
+            "1080p"
+          ],
+          "default": "720p"
+        },
+        {
+          "key": "seed",
+          "type": "INT",
+          "required": false,
+          "min": -1,
+          "max": 2147483647
+        }
+      ]
+    },
+    {
+      "endpoint": "rhart-video-v3.1-lite/image-to-video",
+      "name_cn": "全能视频V3.1-lite-图生视频-低价渠道版",
+      "name_en": "google/veo3.1-lite/image-to-video-channel-low-price",
+      "task": "image-to-video",
+      "output_type": "video",
+      "category": "RunningHub/RHArt Video",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "左右扭扭，蹦蹦跳跳真可爱，双手上下摇晃",
+          "maxLength": 20000
+        },
+        {
+          "key": "aspectRatio",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "16:9",
+            "9:16"
+          ],
+          "default": "16:9"
+        },
+        {
+          "key": "imageUrls",
+          "type": "IMAGE",
+          "required": true,
+          "multiple": true,
+          "maxCount": 3,
+          "maxSizeMB": 10
+        },
+        {
+          "key": "duration",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "8"
+          ],
+          "default": "8"
+        },
+        {
+          "key": "resolution",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "720p",
+            "4k"
+          ],
+          "default": "720p"
+        }
+      ]
+    },
+    {
+      "endpoint": "pixverse-c1/image-to-video",
+      "name_cn": "PixVerse C1 图生视频",
+      "name_en": "pixverse-c1/image-to-video",
+      "task": "image-to-video",
+      "output_type": "video",
+      "category": "RunningHub/PixVerse",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "imageUrl",
+          "type": "IMAGE",
+          "required": true,
+          "maxSizeMB": 10
+        },
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": false,
+          "default": "女孩慢慢走近镜头，威风吹拂她的长发轻轻飘动，女孩的脸渐渐清晰。",
+          "maxLength": 2048
+        },
+        {
+          "key": "resolution",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "360p",
+            "540p",
+            "720p",
+            "1080p"
+          ],
+          "default": "720p"
+        },
+        {
+          "key": "duration",
+          "type": "INT",
+          "required": true,
+          "default": 5,
+          "min": 1,
+          "max": 15
+        },
+        {
+          "key": "generateAudioSwitch",
+          "type": "BOOLEAN",
+          "required": true,
+          "default": true
+        }
+      ]
+    },
+    {
+      "endpoint": "alibaba/happyhorse-1.0/image-to-video",
+      "name_cn": "happyhorse-1.0/image-to-video",
+      "name_en": "happyhorse-1.0/image-to-video",
+      "task": "image-to-video",
+      "output_type": "video",
+      "category": "RunningHub/Alibaba",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "imageUrl",
+          "type": "IMAGE",
+          "required": true,
+          "maxSizeMB": 10
+        },
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": false,
+          "default": "大远景开篇，镜头从接近地面的低机位开始向前移动，镜头沿草原方向推进，同时向上移动，将视角从贴地逐渐抬升至略高位置，使猎豹从左侧进入画面并与前方逃窜的羚羊共同处于同一追逐路径中，建立清晰的前后空间关系。",
+          "maxLength": 2500
+        },
+        {
+          "key": "resolution",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "720p",
+            "1080p"
+          ],
+          "default": "1080p"
+        },
+        {
+          "key": "duration",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15"
+          ],
+          "default": "5"
+        },
+        {
+          "key": "seed",
+          "type": "INT",
+          "required": false,
+          "min": 0,
+          "max": 2147483647
+        }
+      ]
+    },
+    {
+      "endpoint": "kling-v3-4k/image-to-video",
+      "name_cn": "可灵图生视频v3-4k",
+      "name_en": "kling-v3.0-4k-image-to-video",
+      "task": "image-to-video",
+      "output_type": "video",
+      "category": "RunningHub/Kling",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "imageUrl",
+          "type": "IMAGE",
+          "required": true,
+          "maxSizeMB": 10
+        },
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": false,
+          "default": "男士侧身漏出侧脸，微微仰头看天，雨水慢慢滴落，地上的水中霓虹闪烁",
+          "maxLength": 2500
+        },
+        {
+          "key": "negativePrompt",
+          "type": "STRING",
+          "required": false
+        },
+        {
+          "key": "endImageUrl",
+          "type": "IMAGE",
+          "required": false,
+          "maxSizeMB": 10
+        },
+        {
+          "key": "duration",
+          "type": "INT",
+          "required": true,
+          "default": 5,
+          "min": 3,
+          "max": 15
+        },
+        {
+          "key": "cfgScale",
+          "type": "FLOAT",
+          "required": false,
+          "default": 0.5,
+          "min": 0,
+          "max": 1
+        },
+        {
+          "key": "sound",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "shotType",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "customize",
+            "intelligent"
+          ],
+          "default": "customize"
+        }
+      ]
+    },
+    {
+      "endpoint": "kling-video-o3-4k/image-to-video",
+      "name_cn": "可灵图生视频o3-4k",
+      "name_en": "kling-video-o3-4k-image-to-video",
+      "task": "image-to-video",
+      "output_type": "video",
+      "category": "RunningHub/Kling",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "深海热泉喷口附近，一只半透明的发光水母缓缓游动，周围漂浮着雪花般的微生物碎屑。它的触手发出微弱的蓝绿色生物光，偶尔闪烁。镜头缓慢推进，远处可见黑色烟囱喷出矿物羽流。氛围：深邃、安静、神秘、纪实感、电影级光影。",
+          "maxLength": 2500
+        },
+        {
+          "key": "firstImageUrl",
+          "type": "IMAGE",
+          "required": true,
+          "maxSizeMB": 10
+        },
+        {
+          "key": "lastImageUrl",
+          "type": "IMAGE",
+          "required": false,
+          "maxSizeMB": 10
+        },
+        {
+          "key": "duration",
+          "type": "INT",
+          "required": true,
+          "default": 5,
+          "min": 3,
+          "max": 15
+        },
+        {
+          "key": "sound",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "shotType",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "customize",
+            "intelligence"
+          ],
+          "default": "customize"
         }
       ]
     },
@@ -4929,7 +6256,7 @@
           "key": "videoUrl",
           "type": "VIDEO",
           "required": true,
-          "maxSizeMB": 10
+          "maxSizeMB": 100
         },
         {
           "key": "characterOrientation",
@@ -4983,7 +6310,7 @@
           "key": "videoUrl",
           "type": "VIDEO",
           "required": true,
-          "maxSizeMB": 10
+          "maxSizeMB": 100
         },
         {
           "key": "characterOrientation",
@@ -5014,6 +6341,17 @@
           "default": true
         }
       ]
+    },
+    {
+      "endpoint": "kling-v3.0-4k/motion-control",
+      "name_cn": "可灵动作控制V3.0-4k",
+      "name_en": "kling-v3.0-4k-motion-control",
+      "task": "motion-control",
+      "output_type": "video",
+      "category": "RunningHub/Kling",
+      "popularity": 99,
+      "tags": [],
+      "params": []
     },
     {
       "endpoint": "hitem3d-v15/multi-image-to-3d",
@@ -5567,6 +6905,82 @@
       ]
     },
     {
+      "endpoint": "pixverse-v6/extend",
+      "name_cn": "PixVerse V6 视频续写",
+      "name_en": "pixverse-v6/extend",
+      "task": "other",
+      "output_type": "string",
+      "category": "RunningHub/PixVerse",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "镜头缓慢拉远，慢慢显示出后面背景中的街景，男人侧头望向窗外。",
+          "maxLength": 2048
+        },
+        {
+          "key": "videoUrl",
+          "type": "VIDEO",
+          "required": true,
+          "maxSizeMB": 100
+        },
+        {
+          "key": "resolution",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "360p",
+            "540p",
+            "720p",
+            "1080p"
+          ],
+          "default": "720p"
+        },
+        {
+          "key": "duration",
+          "type": "INT",
+          "required": true,
+          "default": 5,
+          "min": 1,
+          "max": 15
+        },
+        {
+          "key": "generateAudioSwitch",
+          "type": "BOOLEAN",
+          "required": true,
+          "default": true
+        },
+        {
+          "key": "negativePrompt",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 2048
+        },
+        {
+          "key": "style",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "anime",
+            "3d_animation",
+            "clay",
+            "comic",
+            "cyberpunk"
+          ]
+        },
+        {
+          "key": "seed",
+          "type": "INT",
+          "required": false,
+          "min": -1,
+          "max": 2147483647
+        }
+      ]
+    },
+    {
       "endpoint": "kling-video-o1-std/refrence-to-video",
       "name_cn": "可灵参考生视频o1",
       "name_en": "kling-video-o1-std/refrence-to-video",
@@ -5821,7 +7235,7 @@
         {
           "key": "imageUrls",
           "type": "IMAGE",
-          "required": true,
+          "required": false,
           "multiple": true,
           "maxCount": 7,
           "maxSizeMB": 50
@@ -5861,7 +7275,7 @@
         {
           "key": "duration",
           "type": "LIST",
-          "required": true,
+          "required": false,
           "options": [
             "1",
             "2",
@@ -5964,7 +7378,7 @@
           "type": "STRING",
           "required": true,
           "default": "把图中的人物融入到视频里",
-          "maxLength": 5000
+          "maxLength": 2500
         },
         {
           "key": "videoUrl",
@@ -6045,7 +7459,7 @@
           "type": "STRING",
           "required": true,
           "default": "在暴雨中的赛博朋克小巷，[参考图] 中的流浪武士根据 [参考视频] 的动作轨迹，迅速拔出背后的长刀并完成一个华丽的转身。雨水击打在他那带有独特刻痕的机械左臂上，产生细腻的溅射效果。光影随着他的旋转在机械表面产生真实的反射偏移。全程保持武士的面部特征与机械臂的复杂结构高度一致。",
-          "maxLength": 5000
+          "maxLength": 2500
         },
         {
           "key": "videoUrl",
@@ -6506,6 +7920,12 @@
           "maxSizeMB": 20
         },
         {
+          "key": "audioUrl",
+          "type": "AUDIO",
+          "required": false,
+          "maxSizeMB": 15
+        },
+        {
           "key": "negativePrompt",
           "type": "STRING",
           "required": false,
@@ -6550,6 +7970,287 @@
             "3:4"
           ],
           "default": "16:9"
+        },
+        {
+          "key": "promptExtend",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": true
+        },
+        {
+          "key": "seed",
+          "type": "INT",
+          "required": false,
+          "min": 0,
+          "max": 2147483647
+        }
+      ]
+    },
+    {
+      "endpoint": "rhart-video-g-official/reference-to-video",
+      "name_cn": "全能视频X-多图参考生视频-官方稳定版",
+      "name_en": "xai/grok-imagine-video/reference-to-video-official-stable",
+      "task": "reference-to-video",
+      "output_type": "video",
+      "category": "RunningHub/RHArt Video G",
+      "popularity": 99,
+      "tags": [
+        "official"
+      ],
+      "params": [
+        {
+          "key": "imageUrls",
+          "type": "IMAGE",
+          "required": true,
+          "multiple": true,
+          "maxCount": 7,
+          "maxSizeMB": 10
+        },
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "图1中的模特正抱着图2中的猫，自信地走在T台上。",
+          "maxLength": 2048
+        },
+        {
+          "key": "duration",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "6",
+            "10"
+          ],
+          "default": "6"
+        },
+        {
+          "key": "resolution",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "720p",
+            "480p"
+          ],
+          "default": "720p"
+        }
+      ]
+    },
+    {
+      "endpoint": "pixverse-c1/reference-to-video",
+      "name_cn": "PixVerse C1 参考生视频",
+      "name_en": "pixverse-c1/reference-to-video",
+      "task": "reference-to-video",
+      "output_type": "video",
+      "category": "RunningHub/PixVerse",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "@woman1 站在草原背景 @b1 上，高兴地转了一圈，然后向镜头挥手。"
+        },
+        {
+          "key": "aspectRatio",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "16:9",
+            "4:3",
+            "1:1",
+            "3:4",
+            "9:16",
+            "2:3",
+            "3:2",
+            "21:9"
+          ],
+          "default": "1:1"
+        },
+        {
+          "key": "resolution",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "360p",
+            "540p",
+            "720p",
+            "1080p"
+          ],
+          "default": "720p"
+        },
+        {
+          "key": "duration",
+          "type": "INT",
+          "required": true,
+          "default": 5,
+          "min": 1,
+          "max": 15
+        },
+        {
+          "key": "generateAudioSwitch",
+          "type": "BOOLEAN",
+          "required": true,
+          "default": false
+        },
+        {
+          "key": "seed",
+          "type": "INT",
+          "required": false,
+          "min": -1,
+          "max": 2147483647
+        }
+      ]
+    },
+    {
+      "endpoint": "kling-video-o3-4k/reference-to-video",
+      "name_cn": "可灵参考生视频o3-4k",
+      "name_en": "kling-video-o3-4k-reference-to-video",
+      "task": "reference-to-video",
+      "output_type": "video",
+      "category": "RunningHub/Kling",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "暖色厨房，一位老人用手将面团轻轻揉圆，指尖沾着面粉。阳光从窗户斜射，面粉微粒在光束中浮动。面团落在案板上一声轻响。",
+          "maxLength": 2500
+        },
+        {
+          "key": "videoUrl",
+          "type": "VIDEO",
+          "required": false,
+          "maxSizeMB": 100
+        },
+        {
+          "key": "imageUrls",
+          "type": "IMAGE",
+          "required": false,
+          "multiple": true,
+          "maxCount": 7,
+          "maxSizeMB": 10
+        },
+        {
+          "key": "keepOriginalSound",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": true
+        },
+        {
+          "key": "sound",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "aspectRatio",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "16:9",
+            "9:16",
+            "1:1"
+          ],
+          "default": "16:9"
+        },
+        {
+          "key": "duration",
+          "type": "INT",
+          "required": true,
+          "default": 5,
+          "min": 3,
+          "max": 15
+        },
+        {
+          "key": "shotType",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "customize",
+            "intelligence"
+          ],
+          "default": "customize"
+        }
+      ]
+    },
+    {
+      "endpoint": "alibaba/happyhorse-1.0/reference-to-video",
+      "name_cn": "happyhorse-1.0/reference-to-video",
+      "name_en": "happyhorse-1.0/reference-to-video",
+      "task": "reference-to-video",
+      "output_type": "video",
+      "category": "RunningHub/Alibaba",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "融合两张图片的内容：以第一张图的简约光影家居为背景，让第二张图的古装女性在场景中做出轻微的自然动作，生成一段过渡自然、风格统一的短视频。整体保持柔和自然光，画面质感统一，人物与背景融合自然，无穿帮、无违和感。",
+          "maxLength": 2500
+        },
+        {
+          "key": "imageUrls",
+          "type": "IMAGE",
+          "required": true,
+          "multiple": true,
+          "maxCount": 9,
+          "maxSizeMB": 10
+        },
+        {
+          "key": "resolution",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "720p",
+            "1080p"
+          ],
+          "default": "1080p"
+        },
+        {
+          "key": "aspectRatio",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "16:9",
+            "9:16",
+            "3:4",
+            "4:3",
+            "1:1"
+          ],
+          "default": "16:9"
+        },
+        {
+          "key": "duration",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15"
+          ],
+          "default": "5"
+        },
+        {
+          "key": "seed",
+          "type": "INT",
+          "required": false,
+          "min": 0,
+          "max": 2147483647
         }
       ]
     },
@@ -7222,6 +8923,72 @@
       ]
     },
     {
+      "endpoint": "rhart-video-v3.1-lite-official/start-end-to-video",
+      "name_cn": "全能视频V3.1-Lite首尾帧生视频-官方稳定版",
+      "name_en": "google/veo3.1-lite/start-end-to-video-official-stable",
+      "task": "start-end-to-video",
+      "output_type": "video",
+      "category": "RunningHub/RHArt Video",
+      "popularity": 99,
+      "tags": [
+        "official"
+      ],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "山野的一年四季变迁，自然过渡",
+          "maxLength": 20000
+        },
+        {
+          "key": "firstImageUrl",
+          "type": "IMAGE",
+          "required": true,
+          "maxSizeMB": 10
+        },
+        {
+          "key": "lastImageUrl",
+          "type": "IMAGE",
+          "required": true,
+          "maxSizeMB": 10
+        },
+        {
+          "key": "aspectRatio",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "16:9",
+            "9:16"
+          ],
+          "default": "16:9"
+        },
+        {
+          "key": "resolution",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "720p",
+            "1080p"
+          ],
+          "default": "720p"
+        },
+        {
+          "key": "negativePrompt",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 20000
+        },
+        {
+          "key": "seed",
+          "type": "INT",
+          "required": false,
+          "min": 0,
+          "max": 2147483647
+        }
+      ]
+    },
+    {
       "endpoint": "hunyuan3d-v3.1/text-to-3d",
       "name_cn": "混元文生3D模型v3.1",
       "name_en": "hunyuan3d-v3.1/text-to-3d",
@@ -7280,7 +9047,8 @@
           "key": "prompt",
           "type": "STRING",
           "required": true,
-          "default": "一群猴子在茂密、阳光斑驳的热带森林中激烈争抢一根非常小的香蕉。香蕉小得近乎滑稽，与猴子们的体型形成鲜明对比。猴子们跳跃、伸手、抓挠，表情夸张，充满急切与渴望。画面充满动感，绿意盎然的枝叶环绕，氛围既混乱又俏皮有趣，自然光线透过树冠洒下，色彩鲜艳生动。"
+          "default": "一群猴子在茂密、阳光斑驳的热带森林中激烈争抢一根非常小的香蕉。香蕉小得近乎滑稽，与猴子们的体型形成鲜明对比。猴子们跳跃、伸手、抓挠，表情夸张，充满急切与渴望。画面充满动感，绿意盎然的枝叶环绕，氛围既混乱又俏皮有趣，自然光线透过树冠洒下，色彩鲜艳生动。",
+          "maxLength": 20000
         },
         {
           "key": "aspectRatio",
@@ -7307,43 +9075,9 @@
           "options": [
             "1k",
             "2k",
-            "4k",
-            "1K",
-            "2K",
-            "4K"
+            "4k"
           ],
           "default": "1k"
-        }
-      ]
-    },
-    {
-      "endpoint": "rhart-image-g-1.5/text-to-image",
-      "name_cn": "全能图片G-1.5-文生图-低价渠道版",
-      "name_en": "gpt-image-1.5/text-to-image-channel-low-price",
-      "task": "text-to-image",
-      "output_type": "image",
-      "category": "RunningHub/RHArt Image",
-      "popularity": 2,
-      "tags": [],
-      "params": [
-        {
-          "key": "prompt",
-          "type": "STRING",
-          "required": true,
-          "default": "夏夜街头大排档，灯火通明，食客围坐吃烧烤、喝啤酒。厨师在炭火烤架前翻动羊肉串和鸡翅，火星四溅，烟雾缭绕。桌上摆满烤串、毛豆、小龙虾和玻璃瓶啤酒，背景是霓虹灯与穿梭的电动车。氛围热闹喧哗，烟火气十足，真实摄影风格，暖色调。",
-          "maxLength": 800
-        },
-        {
-          "key": "aspectRatio",
-          "type": "LIST",
-          "required": true,
-          "options": [
-            "auto",
-            "1:1",
-            "3:2",
-            "2:3"
-          ],
-          "default": "2:3"
         }
       ]
     },
@@ -7464,7 +9198,7 @@
           "type": "STRING",
           "required": true,
           "default": "在一片广阔无垠的大海边，一只快乐的猴子坐在沙滩上，享受着温暖的阳光。它的旁边有一个小小的香蕉，象征着自然的馈赠。天空湛蓝，阳光明媚，海浪轻拍沙滩，营造出轻松愉快的氛围。整体风格为手绘插画，色彩明亮鲜艳，突出积极向上的情绪，让观看者感受到幸福和安宁。",
-          "maxLength": 4000
+          "maxLength": 20000
         },
         {
           "key": "aspectRatio",
@@ -7505,7 +9239,7 @@
           "type": "STRING",
           "required": true,
           "default": "一只身穿精致丝绸长袍、气质高贵的金丝猴正坐在传统的茶馆里，手里端着一个精巧的陶瓷茶杯。木桌上放着一根小巧、熟透的香蕉，上面贴着一个发光的全息标签。采用 50mm f/1.2 镜头拍摄，营造出柔美的虚化效果和浅景深。专业光影，极致写实纹理。",
-          "maxLength": 4000
+          "maxLength": 20000
         },
         {
           "key": "resolution",
@@ -7747,7 +9481,8 @@
           "key": "prompt",
           "type": "STRING",
           "required": true,
-          "default": "A cute baby monkey with hyper-realistic soft fur, its body covered in intricate tribal-inspired geometric patterns that have a holographic iridescent sheen (shifting metallic gold, cyan, and purple hues). The monkey has large expressive dark eyes and a gentle facial expression, crouched on a glossy reflective surface.  Background: Moody neon-lit scene with swirling blue and purple bokeh, blurred glowing abstract decorative elements, and soft ambient neon lighting.  Style: Photorealistic, highly detailed texture, sharp focus on the monkey’s face."
+          "default": "A cute baby monkey with hyper-realistic soft fur, its body covered in intricate tribal-inspired geometric patterns that have a holographic iridescent sheen (shifting metallic gold, cyan, and purple hues). The monkey has large expressive dark eyes and a gentle facial expression, crouched on a glossy reflective surface.  Background: Moody neon-lit scene with swirling blue and purple bokeh, blurred glowing abstract decorative elements, and soft ambient neon lighting.  Style: Photorealistic, highly detailed texture, sharp focus on the monkey’s face.",
+          "maxLength": 20000
         },
         {
           "key": "aspectRatio",
@@ -7786,7 +9521,8 @@
           "key": "prompt",
           "type": "STRING",
           "required": true,
-          "default": "写实风格照片，一位未来的手工艺人正在一间质朴、布满灰尘的赛博朋克工作室里，细致地制作一朵发光的霓虹玻璃玫瑰。温暖、自然的金色时刻阳光透过污浊的窗户射入，与玻璃发出的清冷柔和的蓝色环境光完美平衡。电影级的构图，聚焦于她的双手，画面高度清晰，富有表现力的氛围。"
+          "default": "写实风格照片，一位未来的手工艺人正在一间质朴、布满灰尘的赛博朋克工作室里，细致地制作一朵发光的霓虹玻璃玫瑰。温暖、自然的金色时刻阳光透过污浊的窗户射入，与玻璃发出的清冷柔和的蓝色环境光完美平衡。电影级的构图，聚焦于她的双手，画面高度清晰，富有表现力的氛围。",
+          "maxLength": 20000
         },
         {
           "key": "aspectRatio",
@@ -8538,7 +10274,8 @@
           "key": "prompt",
           "type": "STRING",
           "required": true,
-          "default": "一张 21:9 的电影级特写镜头。画面中心是一个复古的霓虹灯牌，上面用清晰的英文字体写着 \"全能图片 V2\"。灯牌背景是雨后的赛博朋克街道，地面有极度真实的积水倒影。五个不同风格的角色（如：戴墨镜的侦探、机械少女等）正围在灯牌旁讨论，光影呈现出细腻的变形镜头（Anamorphic）晕光效果，画质要求 4K 极精细。"
+          "default": "一张 21:9 的电影级特写镜头。画面中心是一个复古的霓虹灯牌，上面用清晰的英文字体写着 \"全能图片 V2\"。灯牌背景是雨后的赛博朋克街道，地面有极度真实的积水倒影。五个不同风格的角色（如：戴墨镜的侦探、机械少女等）正围在灯牌旁讨论，光影呈现出细腻的变形镜头（Anamorphic）晕光效果，画质要求 4K 极精细。",
+          "maxLength": 20000
         },
         {
           "key": "aspectRatio",
@@ -8614,6 +10351,16 @@
             "high"
           ],
           "default": "medium"
+        },
+        {
+          "key": "background",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "auto",
+            "transparent",
+            "opaque"
+          ]
         }
       ]
     },
@@ -8823,7 +10570,7 @@
           "required": false,
           "default": 1024,
           "min": 512,
-          "max": 4096
+          "max": 8192
         },
         {
           "key": "height",
@@ -8831,13 +10578,262 @@
           "required": false,
           "default": 1024,
           "min": 512,
-          "max": 4096
+          "max": 8192
         },
         {
           "key": "thinkingMode",
           "type": "BOOLEAN",
           "required": false,
           "default": true
+        }
+      ]
+    },
+    {
+      "endpoint": "alibaba/wan-2.5-preview/text-to-image",
+      "name_cn": "万相2.5 Preview 文生图",
+      "name_en": "wan-2.5-preview/text-to-image",
+      "task": "text-to-image",
+      "output_type": "image",
+      "category": "RunningHub/Wan",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "黄金时刻窗边人像九宫格，同一位年轻成人（默认男性）保持完全一致的面容特征、肤色、眼型与自然表情。长直浅棕发自然披肩，身着简约深色无标T恤。九种姿势包括：仰光而视、微笑正对、侧脸低垂、回眸一瞥、放松唇形特写、手拨发丝、后仰迎光、干净侧颜、手托沉思。统一暖调窗光投射柔和阴影，自然肤质与柔和高光，面部锐利聚焦背景虚化。3×3网格布局，极简室内氛围，ins风编辑肖像美学，整体安静、亲密、唯美。",
+          "maxLength": 2000
+        },
+        {
+          "key": "negativePrompt",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 500
+        },
+        {
+          "key": "size",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "1280*1280",
+            "1104*1472",
+            "1472*1104",
+            "960*1696",
+            "1696*960"
+          ],
+          "default": "1280*1280"
+        },
+        {
+          "key": "n",
+          "type": "INT",
+          "required": false,
+          "default": 1,
+          "min": 1,
+          "max": 4
+        },
+        {
+          "key": "promptExtend",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": true
+        },
+        {
+          "key": "seed",
+          "type": "INT",
+          "required": false,
+          "min": 0,
+          "max": 2147483647
+        }
+      ]
+    },
+    {
+      "endpoint": "rhart-image-g-2/text-to-image",
+      "name_cn": "全能图片G-2.0-文生图-低价渠道版",
+      "name_en": "gpt-image-2.0/text-to-image-channel-low-price",
+      "task": "text-to-image",
+      "output_type": "image",
+      "category": "RunningHub/RHArt Image",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "生成一张充满未来感的咖啡馆宣传海报。画面中央是一个发光的霓虹灯招牌，上面清晰且准确地拼写着英文单词 \"CyberBrew\"。背景是带有极简主义和现代高级感的城市街道，光影具有强烈的 Stripe UI 风格。",
+          "maxLength": 20000
+        },
+        {
+          "key": "aspectRatio",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "empty",
+            "3:2",
+            "1:1",
+            "2:3",
+            "5:4",
+            "4:5",
+            "16:9",
+            "9:16",
+            "21:9",
+            "3:4",
+            "4:3"
+          ],
+          "default": "empty"
+        },
+        {
+          "key": "resolution",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "1k",
+            "2k",
+            "4k"
+          ],
+          "default": "1k"
+        }
+      ]
+    },
+    {
+      "endpoint": "rhart-image-g-1.5/text-to-image-[Deprecated]",
+      "name_cn": "全能图片G-1.5-文生图-低价渠道版-(已下架) 可用全能图片G-2 模型代替",
+      "name_en": "gpt-image-1.5/text-to-image-channel-low-price-[Deprecated] Please use gpt-image-2 instead",
+      "task": "text-to-image",
+      "output_type": "image",
+      "category": "RunningHub/RHArt Image",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "夏夜街头大排档，灯火通明，食客围坐吃烧烤、喝啤酒。厨师在炭火烤架前翻动羊肉串和鸡翅，火星四溅，烟雾缭绕。桌上摆满烤串、毛豆、小龙虾和玻璃瓶啤酒，背景是霓虹灯与穿梭的电动车。氛围热闹喧哗，烟火气十足，真实摄影风格，暖色调。"
+        },
+        {
+          "key": "aspectRatio",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "auto",
+            "1:1",
+            "3:2",
+            "2:3"
+          ],
+          "default": "2:3"
+        }
+      ]
+    },
+    {
+      "endpoint": "rhart-image-g-2-official/text-to-image",
+      "name_cn": "全能图片G-2-文生图-官方稳定版",
+      "name_en": "gpt-image-2/text-to-image-official-stable",
+      "task": "text-to-image",
+      "output_type": "image",
+      "category": "RunningHub/RHArt Image",
+      "popularity": 99,
+      "tags": [
+        "official"
+      ],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "一张高端商业摄影海报。画面正中央是一个采用极简设计的白色磨砂质感智能音箱。音箱放置在浅灰色的水磨石台面上。背景是纯净的低饱和度米色墙面，一束柔和的自然光从斜上方 45 度角打下，在台面上留下清晰但边缘柔和的斜长阴影。整体画面干净、通透，具有极简主义的高级感，右侧留有大量负空间（空白）。",
+          "maxLength": 20000
+        },
+        {
+          "key": "aspectRatio",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "1:1",
+            "2:3",
+            "3:2",
+            "3:4",
+            "4:3",
+            "4:5",
+            "5:4",
+            "9:16",
+            "16:9",
+            "21:9"
+          ],
+          "default": "16:9"
+        },
+        {
+          "key": "resolution",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "1k",
+            "2k",
+            "4k"
+          ],
+          "default": "2k"
+        },
+        {
+          "key": "quality",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "low",
+            "medium",
+            "high"
+          ],
+          "default": "medium"
+        }
+      ]
+    },
+    {
+      "endpoint": "rhart-image-x-official/text-to-image",
+      "name_cn": "全能图片X-文生图片-官方稳定版",
+      "name_en": "xai/grok-imagine-image/text-to-image-official-stable",
+      "task": "text-to-image",
+      "output_type": "image",
+      "category": "RunningHub/RHArt Image",
+      "popularity": 99,
+      "tags": [
+        "official"
+      ],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "手持纵向细长模切书签，书签内以精致立体纸雕呈现地点地标，部分元素突破边缘。背景为同一地点的电影感实景虚化，光影匹配时段。8K画质，手部与书签清晰对焦。",
+          "maxLength": 20000
+        },
+        {
+          "key": "aspectRatio",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "2:1",
+            "20:9",
+            "16:9",
+            "4:3",
+            "3:2",
+            "1:1",
+            "2:3",
+            "3:4",
+            "9:16",
+            "9:20",
+            "1:2"
+          ],
+          "default": "1:1"
+        },
+        {
+          "key": "outputFormat",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "jpeg",
+            "png"
+          ],
+          "default": "jpeg"
         }
       ]
     },
@@ -9472,53 +11468,6 @@
       ]
     },
     {
-      "endpoint": "rhart-video-s/text-to-video-pro",
-      "name_cn": "全能视频S-文生视频-pro-低价渠道版",
-      "name_en": "sora-2/text-to-video-pro-channel-low-price",
-      "task": "text-to-video",
-      "output_type": "video",
-      "category": "RunningHub/RHArt Video",
-      "popularity": 2,
-      "tags": [
-        "pro"
-      ],
-      "params": [
-        {
-          "key": "prompt",
-          "type": "STRING",
-          "required": true,
-          "default": "90 年代纪录片风格访谈，一位饱经风霜的老渔民坐在温馨的海边小屋里，说道：“我至今还能闻到年轻时海风的咸腥，还有鲜鱼的气息。”",
-          "maxLength": 4000
-        },
-        {
-          "key": "duration",
-          "type": "LIST",
-          "required": true,
-          "options": [
-            "15",
-            "25"
-          ],
-          "default": "15"
-        },
-        {
-          "key": "aspectRatio",
-          "type": "LIST",
-          "required": true,
-          "options": [
-            "9:16",
-            "16:9"
-          ],
-          "default": "9:16"
-        },
-        {
-          "key": "storyboard",
-          "type": "BOOLEAN",
-          "required": false,
-          "default": false
-        }
-      ]
-    },
-    {
       "endpoint": "rhart-video-s-official/text-to-video",
       "name_cn": "全能视频S-文生视频-官方稳定版",
       "name_en": "sora-2/text-to-video-official-stable",
@@ -9624,7 +11573,7 @@
           "type": "STRING",
           "required": true,
           "default": "视觉： 赛博朋克风的雨夜街道，霓虹灯招牌在积水的地面形成流动的倒影。特写镜头对准一名身披半透明雨衣的男子。 动作： 雨滴撞击雨衣并滑落，男子缓缓抬头，瞳孔中清晰倒映出街对面的霓虹灯光。他张口说话，面部肌肉牵动，呼吸产生淡淡的白雾。 对话（配音 1）： “这座城市从不睡觉，那些阴影里的秘密也一样。” 音效（同步生成）： 淅沥的雨声，远处的车辆鸣笛声，雨滴击打塑料雨衣的清脆声，以及低沉的人声对白。 ",
-          "maxLength": 5000
+          "maxLength": 2500
         },
         {
           "key": "negativePrompt",
@@ -9714,7 +11663,7 @@
           "type": "STRING",
           "required": true,
           "default": "视觉： 一名身着战损机甲的女性探险家行走在风沙弥漫的废弃城市。她停下脚步，低头拨弄闪烁蓝光的通讯器。 动作： 风卷起尘埃掠过镜头，通讯器跳动着微弱的火花。 对话（配音 1）： “总部，能听到吗？这里的能量波动太强了。” 音效（同步生成）： 沉重的脚步声撞击金属地面，呼啸的风声，以及通讯器尖锐的电流滋滋声。",
-          "maxLength": 5000
+          "maxLength": 2500
         },
         {
           "key": "negativePrompt",
@@ -9804,7 +11753,7 @@
           "type": "STRING",
           "required": true,
           "default": "视觉： 一名身着繁复刺绣丝绸长袍的炼金术师。 动作： 炼金术师正缓慢地将一种发光的金色液体从透明琉璃瓶倒入古老的石碗中。液体落入碗中时产生细腻的涟漪和溅射，符合真实的流体动力学。丝绸袖口随手臂动作自然垂落并产生物理褶皱。背景是昏暗的实验室，阳光透过彩色玻璃窗形成流动的光斑。",
-          "maxLength": 5000
+          "maxLength": 2500
         },
         {
           "key": "aspectRatio",
@@ -9866,7 +11815,7 @@
           "type": "STRING",
           "required": true,
           "default": "视觉： 一只色彩斑斓的机械蝴蝶静止在一朵正在缓慢盛开的金属花卉上。 动作： 蝴蝶突然扇动半透明的翅膀飞起，在空中盘旋，翅膀上的光纤纹理随着飞舞变幻颜色。周围空气中漂浮着发光的数字孢子，光影随蝴蝶的游走产生实时偏移。 音效（同步生成）： 机械翅膀快速振动的轻微嗡嗡声，金属花瓣展开时清脆的摩擦声，以及低沉的空间环境背景音。",
-          "maxLength": 5000
+          "maxLength": 2500
         },
         {
           "key": "aspectRatio",
@@ -11351,7 +13300,7 @@
           "type": "STRING",
           "required": true,
           "default": "一部武侠风格的电影级大片。大雨滂沱的暗夜竹林中，一名白衣剑客与一名披着蓑衣的刺客正在激烈近战。镜头首先是广角全景，展示两人在竹林中高速穿梭和见招拆招的肢体互动；随后镜头平滑且无缝地急推至极限特写，两把利剑在半空中猛烈碰撞，迸发出极其耀眼的火花。雨滴真实地溅落在冰冷的剑刃上并随动作瞬间甩出。人物面部表情清晰，物理运动规律极其准确。",
-          "maxLength": 2048
+          "maxLength": 20480
         },
         {
           "key": "resolution",
@@ -11360,6 +13309,7 @@
           "options": [
             "480p",
             "720p",
+            "native1080p",
             "1080p",
             "2k",
             "4k"
@@ -11412,6 +13362,12 @@
           "type": "BOOLEAN",
           "required": false,
           "default": false
+        },
+        {
+          "key": "returnLastFrame",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
         }
       ]
     },
@@ -11432,7 +13388,7 @@
           "type": "STRING",
           "required": true,
           "default": "一部武侠风格的电影级大片。大雨滂沱的暗夜竹林中，一名白衣剑客与一名披着蓑衣的刺客正在激烈近战。镜头首先是广角全景，展示两人在竹林中高速穿梭和见招拆招的肢体互动；随后镜头平滑且无缝地急推至极限特写，两把利剑在半空中猛烈碰撞，迸发出极其耀眼的火花。雨滴真实地溅落在冰冷的剑刃上并随动作瞬间甩出。人物面部表情清晰，物理运动规律极其准确。",
-          "maxLength": 2048
+          "maxLength": 20480
         },
         {
           "key": "resolution",
@@ -11441,6 +13397,7 @@
           "options": [
             "480p",
             "720p",
+            "native1080p",
             "1080p",
             "2k",
             "4k"
@@ -11490,6 +13447,12 @@
         },
         {
           "key": "webSearch",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "returnLastFrame",
           "type": "BOOLEAN",
           "required": false,
           "default": false
@@ -11569,6 +13532,759 @@
             "3:4"
           ],
           "default": "16:9"
+        },
+        {
+          "key": "promptExtend",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": true
+        },
+        {
+          "key": "seed",
+          "type": "INT",
+          "required": false,
+          "min": 0,
+          "max": 2147483647
+        }
+      ]
+    },
+    {
+      "endpoint": "rhart-video-s/text-to-video-pro-deprecated",
+      "name_cn": "全能视频S-文生视频-pro-低价渠道版-已下架",
+      "name_en": "sora-2/text-to-video-pro-channel-low-price",
+      "task": "text-to-video",
+      "output_type": "video",
+      "category": "RunningHub/RHArt Video",
+      "popularity": 99,
+      "tags": [
+        "pro"
+      ],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "90 年代纪录片风格访谈，一位饱经风霜的老渔民坐在温馨的海边小屋里，说道：“我至今还能闻到年轻时海风的咸腥，还有鲜鱼的气息。”",
+          "maxLength": 4000
+        },
+        {
+          "key": "duration",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "15",
+            "25"
+          ],
+          "default": "15"
+        },
+        {
+          "key": "aspectRatio",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "9:16",
+            "16:9"
+          ],
+          "default": "9:16"
+        },
+        {
+          "key": "storyboard",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        }
+      ]
+    },
+    {
+      "endpoint": "pixverse-v6/text-to-video",
+      "name_cn": "PixVerse V6 文生视频",
+      "name_en": "pixverse-v6/text-to-video",
+      "task": "text-to-video",
+      "output_type": "video",
+      "category": "RunningHub/PixVerse",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "一位年轻女性站在阳光明媚的城市街道上，棕色编发，佩戴珍珠耳环，戴着豹纹圆形太阳镜，围着深蓝色紫星图案围巾，身穿黑色皮夹克。她温暖地对着镜头微笑。背景是模糊的城市建筑和晴朗蓝天。柔和的自然阳光照亮她的脸庞。微风轻拂，发丝和围巾微微飘动。电影感构图，浅景深，暖色调调色，4K画质，流畅慢动作质感。",
+          "maxLength": 2048
+        },
+        {
+          "key": "resolution",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "360p",
+            "540p",
+            "720p",
+            "1080p"
+          ],
+          "default": "720p"
+        },
+        {
+          "key": "duration",
+          "type": "INT",
+          "required": true,
+          "default": 5,
+          "min": 1,
+          "max": 15
+        },
+        {
+          "key": "generateAudioSwitch",
+          "type": "BOOLEAN",
+          "required": true,
+          "default": true
+        },
+        {
+          "key": "aspectRatio",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "16:9",
+            "4:3",
+            "1:1",
+            "3:4",
+            "9:16",
+            "2:3",
+            "3:2",
+            "21:9"
+          ],
+          "default": "16:9"
+        }
+      ]
+    },
+    {
+      "endpoint": "alibaba/wan-2.5-preview/text-to-video",
+      "name_cn": "万相2.5 Preview 文生视频",
+      "name_en": "wan-2.5-preview/text-to-video",
+      "task": "text-to-video",
+      "output_type": "video",
+      "category": "RunningHub/Wan",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "镜头跟随黑衣男子快速逃亡,后面一群人在追,镜头转为侧面跟拍,人物惊慌撞倒路边的水果摊爬起来继续逃,人群慌乱的声音",
+          "maxLength": 1500
+        },
+        {
+          "key": "negativePrompt",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 500
+        },
+        {
+          "key": "audioUrl",
+          "type": "AUDIO",
+          "required": false,
+          "maxSizeMB": 15
+        },
+        {
+          "key": "duration",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "5",
+            "10"
+          ],
+          "default": "5"
+        },
+        {
+          "key": "size",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "832*480",
+            "480*832",
+            "624*624",
+            "1280*720",
+            "720*1280",
+            "960*960",
+            "1088*832",
+            "832*1088",
+            "1920*1080",
+            "1080*1920",
+            "1440*1440",
+            "1632*1248",
+            "1248*1632"
+          ],
+          "default": "1920*1080"
+        },
+        {
+          "key": "promptExtend",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": true
+        },
+        {
+          "key": "seed",
+          "type": "INT",
+          "required": false,
+          "min": 0,
+          "max": 2147483647
+        }
+      ]
+    },
+    {
+      "endpoint": "bytedance/seedance-2.0-global/text-to-video",
+      "name_cn": "seedance2.0-global/文生视频",
+      "name_en": "seedance-2.0-global/text-to-video",
+      "task": "text-to-video",
+      "output_type": "video",
+      "category": "RunningHub/Seedance",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "一名22岁的外卖骑手，戴着降噪耳机，骑着一辆破旧的电动自行车，在凌晨2点冲破雨水浸透的超级都市，与时间赛跑。 镜头1：特写——他的手紧握油门到底，水从车把上喷溅而出，后座的外卖箱被牢牢绑住。 镜头2：远景——他在公交车和出租车之间全速穿行，霓虹灯的倒影在他轮胎下积水的街面上划出液态火焰般的光带。 镜头3：第一人称视角——通过雨水斑驳的护目镜，看见前方红灯，随即在瞬间做出决定——猛然倾身进入狭窄的巷子，砖墙距离肩膀仅几寸。 镜头4：特写他的应用程序屏幕，固定在车把上——剩余3分钟，距离1.2公里，评分4.97——他的下巴紧绷。 镜头5：他打滑停下，猛地摘下头盔，徒步冲完最后10米到门口——正好在凌晨2点按响门铃——呼出连续六个街区以来屏住的气息。 气喘吁吁，充满动感，全身湿透在城市的雨水中。",
+          "maxLength": 20480
+        },
+        {
+          "key": "resolution",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "480p",
+            "720p",
+            "native1080p",
+            "1080p",
+            "2k",
+            "4k"
+          ],
+          "default": "720p"
+        },
+        {
+          "key": "duration",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15"
+          ],
+          "default": "5"
+        },
+        {
+          "key": "generateAudio",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": true
+        },
+        {
+          "key": "ratio",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "adaptive",
+            "16:9",
+            "4:3",
+            "1:1",
+            "3:4",
+            "9:16",
+            "21:9"
+          ],
+          "default": "adaptive"
+        },
+        {
+          "key": "webSearch",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "returnLastFrame",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        }
+      ]
+    },
+    {
+      "endpoint": "bytedance/seedance-2.0-global-fast/text-to-video",
+      "name_cn": "seedance2.0-global-fast/文生视频",
+      "name_en": "seedance-2.0-global-fast/text-to-video",
+      "task": "text-to-video",
+      "output_type": "video",
+      "category": "RunningHub/Seedance",
+      "popularity": 99,
+      "tags": [
+        "fast"
+      ],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "古典文艺复兴风格的舞厅，舞者在吊灯下旋转；广角吊臂镜头拍摄，精细特写展示布料和眼睛，以及楼层的俯视旋转镜头。",
+          "maxLength": 20480
+        },
+        {
+          "key": "resolution",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "480p",
+            "720p",
+            "1080p",
+            "2k",
+            "4k"
+          ],
+          "default": "720p"
+        },
+        {
+          "key": "duration",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15"
+          ],
+          "default": "5"
+        },
+        {
+          "key": "generateAudio",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": true
+        },
+        {
+          "key": "ratio",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "adaptive",
+            "16:9",
+            "4:3",
+            "1:1",
+            "3:4",
+            "9:16",
+            "21:9"
+          ],
+          "default": "adaptive"
+        },
+        {
+          "key": "webSearch",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "returnLastFrame",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        }
+      ]
+    },
+    {
+      "endpoint": "rhart-video-v3.1-lite-official/text-to-video",
+      "name_cn": "全能视频V3.1-Lite文生视频-官方稳定版",
+      "name_en": "google/veo3.1-lite/text-to-video-official-stable",
+      "task": "text-to-video",
+      "output_type": "video",
+      "category": "RunningHub/RHArt Video",
+      "popularity": 99,
+      "tags": [
+        "official"
+      ],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "一位风霜满面的老渔夫在黎明时分坐在被雾气笼罩的码头边，用长满老茧的双手修补破损的渔网。他的脸上带着数十年的沉默。镜头缓缓环绕他。色调去饱和，下面是轻轻拍打的波浪声，远处传来雾笛声。",
+          "maxLength": 20000
+        },
+        {
+          "key": "negativePrompt",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 20000
+        },
+        {
+          "key": "aspectRatio",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "16:9",
+            "9:16"
+          ],
+          "default": "16:9"
+        },
+        {
+          "key": "resolution",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "720p",
+            "1080p"
+          ],
+          "default": "1080p"
+        },
+        {
+          "key": "duration",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "4",
+            "6",
+            "8"
+          ],
+          "default": "6"
+        },
+        {
+          "key": "seed",
+          "type": "INT",
+          "required": false,
+          "min": -1,
+          "max": 2147483647
+        }
+      ]
+    },
+    {
+      "endpoint": "rhart-video-v3.1-lite/text-to-video",
+      "name_cn": "全能视频V3.1-lite-文生视频-低价渠道版",
+      "name_en": "google/veo3.1-lite/text-to-video-channel-low-price",
+      "task": "text-to-video",
+      "output_type": "video",
+      "category": "RunningHub/RHArt Video",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "春日午后，樱花纷飞的乡间小路，一位少女骑着老旧自行车经过稻田，微风拂过她的发梢，远处传来风铃声，画面温暖柔和，充满宁静与希望。",
+          "maxLength": 20000
+        },
+        {
+          "key": "aspectRatio",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "16:9",
+            "9:16"
+          ],
+          "default": "9:16"
+        },
+        {
+          "key": "duration",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "8"
+          ],
+          "default": "8"
+        },
+        {
+          "key": "resolution",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "720p",
+            "1080p",
+            "4k"
+          ],
+          "default": "720p"
+        }
+      ]
+    },
+    {
+      "endpoint": "pixverse-c1/text-to-video",
+      "name_cn": "PixVerse C1 文生视频",
+      "name_en": "pixverse-c1/text-to-video",
+      "task": "text-to-video",
+      "output_type": "video",
+      "category": "RunningHub/PixVerse",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "一位身着磨损天鹅绒外套的街头魔术师在暮色中的巴黎雨巷表演。一小群观众注视着他从虚空中变出一枚发光的金币。一个心存疑虑的小女孩挤到前面，双臂交叉。他蹲下至她视线高度，眨了眨眼，随后伸手轻抚她耳后——拉出的不是金币，而是一只活生生的蝴蝶。女孩的表情从怀疑转为纯粹的惊叹。浅景深镜头，暖柔的焦外光晕，蝴蝶放飞的慢动作，电影质感。",
+          "maxLength": 2048
+        },
+        {
+          "key": "resolution",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "360p",
+            "540p",
+            "720p",
+            "1080p"
+          ],
+          "default": "540p"
+        },
+        {
+          "key": "generateAudioSwitch",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "true",
+            "false"
+          ],
+          "default": "false"
+        },
+        {
+          "key": "duration",
+          "type": "INT",
+          "required": true,
+          "default": 5,
+          "min": 1,
+          "max": 15
+        },
+        {
+          "key": "aspectRatio",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "16:9",
+            "4:3",
+            "1:1",
+            "3:4",
+            "9:16",
+            "2:3",
+            "3:2",
+            "21:9"
+          ],
+          "default": "16:9"
+        }
+      ]
+    },
+    {
+      "endpoint": "alibaba/happyhorse-1.0/text-to-video",
+      "name_cn": "happyhorse-1.0/text-to-video",
+      "name_en": "happyhorse-1.0/text-to-video",
+      "task": "text-to-video",
+      "output_type": "video",
+      "category": "RunningHub/Alibaba",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "宽镜头。一名穿着尘土飞扬的橙色压力服、深蓝灰色背带和黑色靴子的孤独宇航员，在广阔的月球平原上滑雪，留下两条长长的平行轨迹在灰色的风化层中。宇航员正跨步前行，滑雪杆插入地面，在六分之一重力下推进，每一次推动都会让身体微微漂浮升起，然后再落下。细微的尘埃在滑雪轨迹旁形成低悬的薄雾。身后和上方，一轮新月形的地球恰好悬在月球地平线的柔和曲线之上，蓝白色的大气辉光映衬在漆黑的天空中。原始阳光，高对比阴影，无填充光。",
+          "maxLength": 2500
+        },
+        {
+          "key": "resolution",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "720p",
+            "1080p"
+          ],
+          "default": "1080p"
+        },
+        {
+          "key": "duration",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15"
+          ],
+          "default": "5"
+        },
+        {
+          "key": "aspectRatio",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "16:9",
+            "9:16",
+            "1:1",
+            "4:3",
+            "3:4"
+          ],
+          "default": "16:9"
+        },
+        {
+          "key": "seed",
+          "type": "INT",
+          "required": false,
+          "min": 0,
+          "max": 2147483647
+        }
+      ]
+    },
+    {
+      "endpoint": "kling-v3-4k/text-to-video",
+      "name_cn": "可灵文生视频v3-4k",
+      "name_en": "kling-v3-4k-text-to-video",
+      "task": "text-to-video",
+      "output_type": "video",
+      "category": "RunningHub/Kling",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "深夜末班地铁，一个穿西装的男人靠窗坐着，领带松散，手背撑着额头。列车灯光忽明忽暗地掠过他的脸，他闭着眼，睫毛微颤。",
+          "maxLength": 2500
+        },
+        {
+          "key": "negativePrompt",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 2500
+        },
+        {
+          "key": "duration",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15"
+          ],
+          "default": "5"
+        },
+        {
+          "key": "aspectRatio",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "16:9",
+            "9:16",
+            "1:1"
+          ],
+          "default": "16:9"
+        },
+        {
+          "key": "cfgScale",
+          "type": "FLOAT",
+          "required": false,
+          "default": 0.5,
+          "min": 0,
+          "max": 1
+        },
+        {
+          "key": "sound",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "shotType",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "customize",
+            "intelligence"
+          ],
+          "default": "customize"
+        }
+      ]
+    },
+    {
+      "endpoint": "kling-video-o3-4k/text-to-video",
+      "name_cn": "可灵文生视频o3-4k",
+      "name_en": "kling-video-o3-4k-text-to-video",
+      "task": "text-to-video",
+      "output_type": "video",
+      "category": "RunningHub/Kling",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "午后办公室，一位疲惫的上班族拿起一杯热气腾腾的现磨咖啡。他用鼻子深吸香气，眼神从疲惫转为明亮。时间仿佛暂停，镜头围绕咖啡杯旋转，背景从凌乱工位变成清晨的咖啡种植园。最后画面回到现实，他微笑轻啜，字幕浮现：“唤醒灵感”。风格：干净、明亮、微距特写。",
+          "maxLength": 2500
+        },
+        {
+          "key": "aspectRatio",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "16:9",
+            "9:16",
+            "1:1"
+          ],
+          "default": "16:9"
+        },
+        {
+          "key": "duration",
+          "type": "INT",
+          "required": true,
+          "default": 5,
+          "min": 3,
+          "max": 15
+        },
+        {
+          "key": "sound",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "shotType",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "customize",
+            "intelligence"
+          ],
+          "default": "customize"
         }
       ]
     },
@@ -11721,7 +14437,7 @@
           "type": "STRING",
           "required": true,
           "default": "Change the time to the night.",
-          "maxLength": 5000
+          "maxLength": 2500
         },
         {
           "key": "videoUrl",
@@ -11762,7 +14478,7 @@
           "type": "STRING",
           "required": true,
           "default": "将视频中男子的衣服替换为图 1 的衣服",
-          "maxLength": 5000
+          "maxLength": 2500
         },
         {
           "key": "videoUrl",
@@ -11849,7 +14565,7 @@
             "9",
             "10"
           ],
-          "default": "5"
+          "default": "0"
         },
         {
           "key": "aspectRatio",
@@ -11863,6 +14579,79 @@
             "3:4"
           ],
           "default": "16:9"
+        },
+        {
+          "key": "promptExtend",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": true
+        },
+        {
+          "key": "seed",
+          "type": "INT",
+          "required": false,
+          "min": 0,
+          "max": 2147483647
+        }
+      ]
+    },
+    {
+      "endpoint": "alibaba/happyhorse-1.0/video-edit",
+      "name_cn": "happyhorse-1.0/video-edit",
+      "name_en": "happyhorse-1.0/video-edit",
+      "task": "video-edit",
+      "output_type": "video",
+      "category": "RunningHub/Alibaba",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "videoUrl",
+          "type": "VIDEO",
+          "required": true,
+          "maxSizeMB": 100
+        },
+        {
+          "key": "imageUrls",
+          "type": "IMAGE",
+          "required": false,
+          "multiple": true,
+          "maxCount": 5,
+          "maxSizeMB": 10
+        },
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "将图片中的元素添加到视频中",
+          "maxLength": 2500
+        },
+        {
+          "key": "resolution",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "720p",
+            "1080p"
+          ],
+          "default": "1080p"
+        },
+        {
+          "key": "audioSetting",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "auto",
+            "origin"
+          ],
+          "default": "origin"
+        },
+        {
+          "key": "seed",
+          "type": "INT",
+          "required": false,
+          "min": 0,
+          "max": 2147483647
         }
       ]
     },
@@ -12027,6 +14816,56 @@
             "15"
           ],
           "default": "5"
+        },
+        {
+          "key": "promptExtend",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": true
+        },
+        {
+          "key": "seed",
+          "type": "INT",
+          "required": false,
+          "min": 0,
+          "max": 2147483647
+        }
+      ]
+    },
+    {
+      "endpoint": "rhart-video-g-official/video-extend",
+      "name_cn": "全能视频X-视频续写-官方稳定版",
+      "name_en": "xai/grok-imagine-video/video-extend-official-stable",
+      "task": "video-extend",
+      "output_type": "video",
+      "category": "RunningHub/RHArt Video G",
+      "popularity": 99,
+      "tags": [
+        "official"
+      ],
+      "params": [
+        {
+          "key": "videoUrl",
+          "type": "VIDEO",
+          "required": true,
+          "maxSizeMB": 100
+        },
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "父亲正在给他的女儿讲故事。",
+          "maxLength": 2048
+        },
+        {
+          "key": "duration",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "6",
+            "10"
+          ],
+          "default": "6"
         }
       ]
     },
@@ -12710,7 +15549,7 @@
           "key": "prompt",
           "type": "STRING",
           "required": true,
-          "maxLength": 2048
+          "maxLength": 20480
         },
         {
           "key": "resolution",
@@ -12719,6 +15558,7 @@
           "options": [
             "480p",
             "720p",
+            "native1080p",
             "1080p",
             "2k",
             "4k"
@@ -12789,6 +15629,12 @@
             "21:9"
           ],
           "default": "adaptive"
+        },
+        {
+          "key": "returnLastFrame",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
         }
       ]
     },
@@ -12809,7 +15655,7 @@
           "type": "STRING",
           "required": true,
           "default": "把视频中的人物替换成图片中的人物，并延长这段视频",
-          "maxLength": 2048
+          "maxLength": 20480
         },
         {
           "key": "resolution",
@@ -12818,6 +15664,7 @@
           "options": [
             "480p",
             "720p",
+            "native1080p",
             "1080p",
             "2k",
             "4k"
@@ -12888,11 +15735,121 @@
             "21:9"
           ],
           "default": "adaptive"
+        },
+        {
+          "key": "returnLastFrame",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
         }
       ]
     },
     {
-      "endpoint": "rh/video-fps-increaser",
+      "endpoint": "pixverse-v6/transition",
+      "name_cn": "PixVerse V6 转场",
+      "name_en": "pixverse-v6/transition",
+      "task": "video-other",
+      "output_type": "video",
+      "category": "RunningHub/PixVerse",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "更换图片中模特的衣服以实现平滑过渡。",
+          "maxLength": 2048
+        },
+        {
+          "key": "firstImageUrl",
+          "type": "IMAGE",
+          "required": true,
+          "maxSizeMB": 10
+        },
+        {
+          "key": "endImageUrl",
+          "type": "IMAGE",
+          "required": false,
+          "maxSizeMB": 10
+        },
+        {
+          "key": "resolution",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "360p",
+            "540p",
+            "720p",
+            "1080p"
+          ],
+          "default": "720p"
+        },
+        {
+          "key": "duration",
+          "type": "INT",
+          "required": true,
+          "default": 5,
+          "min": 1,
+          "max": 15
+        },
+        {
+          "key": "generateAudioSwitch",
+          "type": "BOOLEAN",
+          "required": true,
+          "default": false
+        },
+        {
+          "key": "generateMultiClipSwitch",
+          "type": "BOOLEAN",
+          "required": true,
+          "default": false
+        },
+        {
+          "key": "aspectRatio",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "16:9",
+            "4:3",
+            "1:1",
+            "3:4",
+            "9:16",
+            "2:3",
+            "3:2",
+            "21:9"
+          ],
+          "default": "1:1"
+        },
+        {
+          "key": "style",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "anime",
+            "3d_animation",
+            "clay",
+            "comic",
+            "cyberpunk"
+          ]
+        },
+        {
+          "key": "negativePrompt",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 2048
+        },
+        {
+          "key": "seed",
+          "type": "INT",
+          "required": false,
+          "min": -1,
+          "max": 2147483647
+        }
+      ]
+    },
+    {
+      "endpoint": "rhart-video/video-fps-increaser",
       "name_cn": "RH视频帧率增强",
       "name_en": "rh-video-fps-increaser",
       "task": "video-other",
@@ -12906,6 +15863,342 @@
           "type": "VIDEO",
           "required": true,
           "maxSizeMB": 500
+        }
+      ]
+    },
+    {
+      "endpoint": "bytedance/seedance-2.0-global/multimodal-video",
+      "name_cn": "seedance2.0-global/多模态视频",
+      "name_en": "seedance-2.0-global/multimodal-video",
+      "task": "video-other",
+      "output_type": "video",
+      "category": "RunningHub/Seedance",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "@Image 1 图中的两个人，坐在一起吃火锅，火锅场景是@Video 1 ",
+          "maxLength": 20480
+        },
+        {
+          "key": "resolution",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "480p",
+            "720p",
+            "native1080p",
+            "1080p",
+            "2k",
+            "4k"
+          ],
+          "default": "720p"
+        },
+        {
+          "key": "duration",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15"
+          ],
+          "default": "5"
+        },
+        {
+          "key": "imageUrls",
+          "type": "IMAGE",
+          "required": false,
+          "multiple": true,
+          "maxCount": 9,
+          "maxSizeMB": 30
+        },
+        {
+          "key": "videoUrls",
+          "type": "VIDEO",
+          "required": false,
+          "multiple": true,
+          "maxCount": 3,
+          "maxSizeMB": 50
+        },
+        {
+          "key": "audioUrls",
+          "type": "AUDIO",
+          "required": false,
+          "multiple": true,
+          "maxCount": 3,
+          "maxSizeMB": 50
+        },
+        {
+          "key": "generateAudio",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": true
+        },
+        {
+          "key": "ratio",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "adaptive",
+            "16:9",
+            "4:3",
+            "1:1",
+            "3:4",
+            "9:16",
+            "21:9"
+          ],
+          "default": "adaptive"
+        },
+        {
+          "key": "realPersonMode",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": true
+        },
+        {
+          "key": "conversionSlots",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "all",
+            "image1",
+            "image2",
+            "image3",
+            "image4",
+            "image5",
+            "image6",
+            "image7",
+            "image8",
+            "image9",
+            "video1",
+            "video2",
+            "video3"
+          ],
+          "default": "all"
+        },
+        {
+          "key": "returnLastFrame",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        }
+      ]
+    },
+    {
+      "endpoint": "bytedance/seedance-2.0-global-fast/multimodal-video",
+      "name_cn": "seedance2.0-global-fast/多模态视频",
+      "name_en": "seedance-2.0-global-fast/multimodal-video",
+      "task": "video-other",
+      "output_type": "video",
+      "category": "RunningHub/Seedance",
+      "popularity": 99,
+      "tags": [
+        "fast"
+      ],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "把@Video 1 中的人物替换成 @Image 1  中的人物",
+          "maxLength": 20480
+        },
+        {
+          "key": "resolution",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "480p",
+            "720p",
+            "1080p",
+            "2k",
+            "4k"
+          ],
+          "default": "720p"
+        },
+        {
+          "key": "duration",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15"
+          ],
+          "default": "5"
+        },
+        {
+          "key": "imageUrls",
+          "type": "IMAGE",
+          "required": false,
+          "multiple": true,
+          "maxCount": 9,
+          "maxSizeMB": 30
+        },
+        {
+          "key": "videoUrls",
+          "type": "VIDEO",
+          "required": false,
+          "multiple": true,
+          "maxCount": 3,
+          "maxSizeMB": 50
+        },
+        {
+          "key": "audioUrls",
+          "type": "AUDIO",
+          "required": false,
+          "multiple": true,
+          "maxCount": 3,
+          "maxSizeMB": 50
+        },
+        {
+          "key": "generateAudio",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": true
+        },
+        {
+          "key": "ratio",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "adaptive",
+            "16:9",
+            "4:3",
+            "1:1",
+            "3:4",
+            "9:16",
+            "21:9"
+          ],
+          "default": "adaptive"
+        },
+        {
+          "key": "realPersonMode",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": true
+        },
+        {
+          "key": "conversionSlots",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "all",
+            "image1",
+            "image2",
+            "image3",
+            "image4",
+            "image5",
+            "image6",
+            "image7",
+            "image8",
+            "image9",
+            "video1",
+            "video2",
+            "video3"
+          ],
+          "default": "all"
+        },
+        {
+          "key": "returnLastFrame",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        }
+      ]
+    },
+    {
+      "endpoint": "pixverse-c1/transition",
+      "name_cn": "PixVerse C1 转场",
+      "name_en": "pixverse-c1/transition",
+      "task": "video-other",
+      "output_type": "video",
+      "category": "RunningHub/PixVerse",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": true,
+          "default": "两个小男孩从滑梯上滑下来，跑向镜头前。",
+          "maxLength": 2048
+        },
+        {
+          "key": "firstImageUrl",
+          "type": "IMAGE",
+          "required": true,
+          "maxSizeMB": 10
+        },
+        {
+          "key": "endImageUrl",
+          "type": "IMAGE",
+          "required": false,
+          "maxSizeMB": 10
+        },
+        {
+          "key": "resolution",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "360p",
+            "540p",
+            "720p",
+            "1080p"
+          ],
+          "default": "720p"
+        },
+        {
+          "key": "duration",
+          "type": "INT",
+          "required": true,
+          "default": 5,
+          "min": 1,
+          "max": 15
+        },
+        {
+          "key": "generateAudioSwitch",
+          "type": "BOOLEAN",
+          "required": true,
+          "default": false
+        },
+        {
+          "key": "aspectRatio",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "16:9",
+            "4:3",
+            "1:1",
+            "3:4",
+            "9:16",
+            "2:3",
+            "3:2",
+            "21:9"
+          ],
+          "default": "1:1"
         }
       ]
     },
@@ -13051,8 +16344,8 @@
       ]
     },
     {
-      "endpoint": "rh/video-upscaler",
-      "name_cn": "RH视频超分辨率",
+      "endpoint": "rhart-video/video-upscaler",
+      "name_cn": "RH视频超分",
       "name_en": "rh-video-upscaler",
       "task": "video-upscale",
       "output_type": "video",

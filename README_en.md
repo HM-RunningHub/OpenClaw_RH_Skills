@@ -2,17 +2,17 @@
 
 [中文](./README.md)
 
-An [OpenClaw](https://github.com/openclaw/openclaw) skill that brings multimedia generation capabilities — including image, video, audio, 3D, and text — to conversational AI, powered by 222 [RunningHub](https://www.runninghub.cn) API endpoints. Built with zero external dependencies (pure Python 3 + curl), it lets users create rich media content through natural language, with support for both standard model APIs and custom ComfyUI workflows (AI Applications).
+An [OpenClaw](https://github.com/openclaw/openclaw) skill that brings multimedia generation capabilities — including image, video, audio, 3D, and text — to conversational AI, powered by 275 [RunningHub](https://www.runninghub.cn) API endpoints. Built with zero external dependencies (pure Python 3 + curl), it lets users create rich media content through natural language, with support for both standard model APIs and custom ComfyUI workflows (AI Applications).
 
 ## Capabilities
 
 | Category | Endpoints | Tasks |
 |----------|-----------|-------|
-| **Image** | 51 | text-to-image, image-to-image, image upscale, Midjourney-style |
-| **Video** | 134 | text-to-video, image-to-video, start-end frames, video extend/edit, motion control, multimodal video |
-| **Audio** | 8 | text-to-speech, music generation, voice clone |
+| **Image** | 59 | text-to-image, image-to-image, image upscale, Midjourney-style |
+| **Video** | 166 | text-to-video, image-to-video, start-end frames, video extend/edit, motion control, multimodal video |
+| **Audio** | 16 | text-to-speech, music generation, voice clone |
 | **3D** | 12 | text-to-3D, image-to-3D, multi-image-to-3D |
-| **Text** | 17 | image-to-text, video-to-text, text-to-text |
+| **Text** | 22 | image-to-text, video-to-text, text-to-text |
 | **AI Apps** | Unlimited | Run any RunningHub AI Application (custom ComfyUI workflow) |
 
 ## Quick Start
@@ -75,7 +75,7 @@ When generating images, the assistant presents 5 curated models to choose from:
 > 1. 🎨 **RH Image PRO** — Best overall quality, recommended default
 > 2. ⚡ **RH Image V2** — Fastest and most affordable
 > 3. 🎭 **Youchuan v7** — Midjourney-style, cinematic look
-> 4. 🌸 **Youchuan niji7** — Anime / illustration style
+> 4. 🤖 **GPT Image 2** — Strong prompt understanding and reliable image editing
 > 5. 📷 **Seedream v5** — ByteDance, strong photorealistic feel
 
 Pick a number to start, or the default (RH Image PRO) is used automatically.
@@ -86,7 +86,7 @@ Pick a number to start, or the default (RH Image PRO) is used automatically.
 runninghub/
 ├── SKILL.md                        # OpenClaw skill definition (routing table + examples)
 ├── scripts/
-│   ├── runninghub.py               # Standard model API client (222 endpoints)
+│   ├── runninghub.py               # Standard model API client (275 endpoints)
 │   ├── runninghub_app.py           # AI Application client (custom ComfyUI workflows)
 │   └── build_capabilities.py       # Generates capabilities.json from models_registry.json
 └── data/

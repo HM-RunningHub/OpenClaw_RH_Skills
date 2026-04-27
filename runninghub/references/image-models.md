@@ -7,7 +7,7 @@
 > 1. 🎨 **全能图片PRO** — 香蕉Pro同款，默认推荐，综合效果最好
 > 2. ⚡ **全能图片V2** — 香蕉2同款，最快最便宜
 > 3. 🎭 **悠船 v7** — Midjourney 风格，欧美大片质感
-> 4. 🌸 **悠船 niji7** — 二次元/动漫风格，插画感满满
+> 4. 🤖 **GPT Image 2** — GPT image2 同款，语义理解强，改图也很稳
 > 5. 📷 **Seedream v5** — 字节跳动出品，写实照片感超强
 >
 > 说个数字就行～ 不选的话我默认用 🎨全能图片PRO 哦！
@@ -22,7 +22,7 @@ After user replies, map choice → endpoint:
 | 1 (default) | `rhart-image-n-pro/text-to-image` |
 | 2 | `rhart-image-n-g31-flash/text-to-image` |
 | 3 | `youchuan/text-to-image-v7` |
-| 4 | `youchuan/text-to-image-niji7` |
+| 4 | `rhart-image-g-2/text-to-image` |
 | 5 | `seedream-v5-lite/text-to-image` |
 
 **Image-to-image / Image edit** (user has source image):
@@ -31,10 +31,10 @@ After user replies, map choice → endpoint:
 | 1 (default) | `rhart-image-n-pro/edit` |
 | 2 | `rhart-image-n-g31-flash/image-to-image` |
 | 3 | `rhart-image-n-pro/edit` ⚠️ 悠船无图生图，回退到全能PRO |
-| 4 | `rhart-image-n-pro/edit` ⚠️ 悠船无图生图，回退到全能PRO |
+| 4 | `rhart-image-g-2/image-to-image` |
 | 5 | `seedream-v5-lite/image-to-image` |
 
-When user picks 悠船 (3 or 4) for image-to-image, tell them warmly:
+When user picks 悠船 (3) for image-to-image, tell them warmly:
 > "悠船模型暂时不支持图生图，我帮你用全能图片PRO来处理哈～ 效果也很棒的！"
 
 ## Matching Rules
@@ -42,7 +42,7 @@ When user picks 悠船 (3 or 4) for image-to-image, tell them warmly:
 - Number 1-5 → use that model
 - Partial name ("全能", "PRO", "V2") → match to #1 or #2
 - "悠船" / "Midjourney" / "MJ" → #3
-- "niji" / "二次元" / "动漫" → #4
+- "GPT Image" / "GPT image2" / "GPT Image 2" / "G-2" → #4
 - "Seedream" / "种子" / "写实" / "照片" → #5
 - "随便" / "你选" / "默认" → #1
 - "最快的" / "便宜的" → #2
