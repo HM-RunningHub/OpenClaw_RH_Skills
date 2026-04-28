@@ -2,7 +2,7 @@
 """
 RunningHub universal API client for OpenClaw.
 
-Supports all 275 RunningHub endpoints: image, video, audio, 3D, text understanding.
+Supports all 294 RunningHub endpoints: image, video, audio, 3D, text understanding.
 Uses only Python stdlib and curl.
 
 Modes:

@@ -2,17 +2,17 @@
 
 [中文](./README.md)
 
-An [OpenClaw](https://github.com/openclaw/openclaw) skill that brings multimedia generation capabilities — including image, video, audio, 3D, and text — to conversational AI, powered by 275 [RunningHub](https://www.runninghub.cn) API endpoints. Built with zero external dependencies (pure Python 3 + curl), it lets users create rich media content through natural language, with support for both standard model APIs and custom ComfyUI workflows (AI Applications).
+An [OpenClaw](https://github.com/openclaw/openclaw) skill that brings multimedia generation capabilities — including image, video, audio, 3D, and text — to conversational AI, powered by 294 [RunningHub](https://www.runninghub.cn) API endpoints. Built with zero external dependencies (pure Python 3 + curl), it lets users create rich media content through natural language, with support for both standard model APIs and custom ComfyUI workflows (AI Applications).
 
 ## Capabilities
 
 | Category | Endpoints | Tasks |
 |----------|-----------|-------|
-| **Image** | 59 | text-to-image, image-to-image, image upscale, Midjourney-style |
-| **Video** | 166 | text-to-video, image-to-video, start-end frames, video extend/edit, motion control, multimodal video |
+| **Image** | 67 | text-to-image, image-to-image, image upscale, Midjourney-style |
+| **Video** | 171 | text-to-video, image-to-video, start-end frames, video extend/edit, motion control, multimodal video |
 | **Audio** | 16 | text-to-speech, music generation, voice clone |
-| **3D** | 12 | text-to-3D, image-to-3D, multi-image-to-3D |
-| **Text** | 22 | image-to-text, video-to-text, text-to-text |
+| **3D** | 14 | text-to-3D, image-to-3D, multi-image-to-3D |
+| **Text** | 26 | image-to-text, video-to-text, text-to-text |
 | **AI Apps** | Unlimited | Run any RunningHub AI Application (custom ComfyUI workflow) |
 
 ## Quick Start
@@ -86,7 +86,7 @@ Pick a number to start, or the default (RH Image PRO) is used automatically.
 runninghub/
 ├── SKILL.md                        # OpenClaw skill definition (routing table + examples)
 ├── scripts/
-│   ├── runninghub.py               # Standard model API client (275 endpoints)
+│   ├── runninghub.py               # Standard model API client (294 endpoints)
 │   ├── runninghub_app.py           # AI Application client (custom ComfyUI workflows)
 │   └── build_capabilities.py       # Generates capabilities.json from models_registry.json
 └── data/

@@ -1,6 +1,6 @@
 {
-  "version": "2026-04-28",
-  "total": 275,
+  "version": "2026-04-29",
+  "total": 294,
   "endpoints": [
     {
       "endpoint": "minimax/voice-design",
@@ -323,6 +323,581 @@
       ]
     },
     {
+      "endpoint": "image-enhance/hypir-ultra",
+      "name_cn": "HYPIR-ULTRA",
+      "name_en": "hypir-ultra",
+      "task": "image-other",
+      "output_type": "image",
+      "category": "RunningHub/Image Enhance",
+      "popularity": 99,
+      "tags": [
+        "ultra-quality"
+      ],
+      "params": [
+        {
+          "key": "imageUrl",
+          "type": "IMAGE",
+          "required": true,
+          "maxSizeMB": 10
+        },
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 8192
+        },
+        {
+          "key": "shortEdgeSize",
+          "type": "INT",
+          "required": false,
+          "default": -1,
+          "min": -1,
+          "max": 16384
+        },
+        {
+          "key": "longEdgeSize",
+          "type": "INT",
+          "required": false,
+          "default": -1,
+          "min": -1,
+          "max": 16384
+        },
+        {
+          "key": "textureLevel",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"
+          ],
+          "default": "3"
+        },
+        {
+          "key": "creativityLevel",
+          "type": "LIST",
+          "required": false,
+          "options": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4"
+          ]
+        },
+        {
+          "key": "upscale",
+          "type": "INT",
+          "required": false,
+          "min": 1
+        },
+        {
+          "key": "seed",
+          "type": "INT",
+          "required": false
+        }
+      ]
+    },
+    {
+      "endpoint": "image-enhance/hypir-balance",
+      "name_cn": "HYPIR-BALANCE",
+      "name_en": "hypir-balance",
+      "task": "image-other",
+      "output_type": "image",
+      "category": "RunningHub/Image Enhance",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "imageUrl",
+          "type": "IMAGE",
+          "required": true,
+          "maxSizeMB": 10
+        },
+        {
+          "key": "upscale",
+          "type": "INT",
+          "required": true,
+          "min": 1
+        },
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 8192
+        },
+        {
+          "key": "shortEdgeSize",
+          "type": "INT",
+          "required": false,
+          "default": -1,
+          "min": -1,
+          "max": 16384
+        },
+        {
+          "key": "longEdgeSize",
+          "type": "INT",
+          "required": false,
+          "default": -1,
+          "min": -1,
+          "max": 16384
+        },
+        {
+          "key": "seed",
+          "type": "INT",
+          "required": false
+        }
+      ]
+    },
+    {
+      "endpoint": "marble-1.0/image-to-world",
+      "name_cn": "marble-1.0 单图生3D世界",
+      "name_en": "marble-1.0/image-to-world",
+      "task": "image-other",
+      "output_type": "image",
+      "category": "RunningHub/Marble",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "imageUrl",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 2048
+        },
+        {
+          "key": "textPrompt",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 4000
+        },
+        {
+          "key": "isPano",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "disableRecaption",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "displayName",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 64
+        },
+        {
+          "key": "seed",
+          "type": "INT",
+          "required": false
+        },
+        {
+          "key": "permissionPublic",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "permissionAllowIdAccess",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "tags",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 700
+        },
+        {
+          "key": "permissionAllowedReaders",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 4000
+        },
+        {
+          "key": "permissionAllowedWriters",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 4000
+        }
+      ]
+    },
+    {
+      "endpoint": "marble-1.0/multi-image-to-world",
+      "name_cn": "marble-1.0 多图生3D世界",
+      "name_en": "marble-1.0/multi-image-to-world",
+      "task": "image-other",
+      "output_type": "image",
+      "category": "RunningHub/Marble",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "textPrompt",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 4000
+        },
+        {
+          "key": "reconstructImages",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "disableRecaption",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "displayName",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 64
+        },
+        {
+          "key": "seed",
+          "type": "INT",
+          "required": false
+        },
+        {
+          "key": "permissionPublic",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "permissionAllowIdAccess",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "tags",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 700
+        },
+        {
+          "key": "permissionAllowedReaders",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 4000
+        },
+        {
+          "key": "permissionAllowedWriters",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 4000
+        }
+      ]
+    },
+    {
+      "endpoint": "marble-1.1/multi-image-to-world",
+      "name_cn": "marble-1.1 多图生3D世界",
+      "name_en": "marble-1.1/multi-image-to-world",
+      "task": "image-other",
+      "output_type": "image",
+      "category": "RunningHub/Marble",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "textPrompt",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 4000
+        },
+        {
+          "key": "reconstructImages",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "disableRecaption",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "displayName",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 64
+        },
+        {
+          "key": "seed",
+          "type": "INT",
+          "required": false
+        },
+        {
+          "key": "permissionPublic",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "permissionAllowIdAccess",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "tags",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 700
+        },
+        {
+          "key": "permissionAllowedReaders",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 4000
+        },
+        {
+          "key": "permissionAllowedWriters",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 4000
+        }
+      ]
+    },
+    {
+      "endpoint": "marble-1.1-plus/multi-image-to-world",
+      "name_cn": "marble-1.1-plus 多图生3D世界",
+      "name_en": "marble-1.1-plus/multi-image-to-world",
+      "task": "image-other",
+      "output_type": "image",
+      "category": "RunningHub/Marble",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "textPrompt",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 4000
+        },
+        {
+          "key": "reconstructImages",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "disableRecaption",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "displayName",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 64
+        },
+        {
+          "key": "seed",
+          "type": "INT",
+          "required": false
+        },
+        {
+          "key": "permissionPublic",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "permissionAllowIdAccess",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "tags",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 700
+        },
+        {
+          "key": "permissionAllowedReaders",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 4000
+        },
+        {
+          "key": "permissionAllowedWriters",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 4000
+        }
+      ]
+    },
+    {
+      "endpoint": "marble-1.1/image-to-world",
+      "name_cn": "marble-1.1 单图生3D世界",
+      "name_en": "marble-1.1/image-to-world",
+      "task": "image-other",
+      "output_type": "image",
+      "category": "RunningHub/Marble",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "imageUrl",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 2048
+        },
+        {
+          "key": "textPrompt",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 4000
+        },
+        {
+          "key": "isPano",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "disableRecaption",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "displayName",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 64
+        },
+        {
+          "key": "seed",
+          "type": "INT",
+          "required": false
+        },
+        {
+          "key": "permissionPublic",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "permissionAllowIdAccess",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "tags",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 700
+        },
+        {
+          "key": "permissionAllowedReaders",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 4000
+        },
+        {
+          "key": "permissionAllowedWriters",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 4000
+        }
+      ]
+    },
+    {
+      "endpoint": "marble-1.1-plus/image-to-world",
+      "name_cn": "marble-1.1-plus 单图生3D世界",
+      "name_en": "marble-1.1-plus/image-to-world",
+      "task": "image-other",
+      "output_type": "image",
+      "category": "RunningHub/Marble",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "imageUrl",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 2048
+        },
+        {
+          "key": "textPrompt",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 4000
+        },
+        {
+          "key": "isPano",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "disableRecaption",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "displayName",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 64
+        },
+        {
+          "key": "seed",
+          "type": "INT",
+          "required": false
+        },
+        {
+          "key": "permissionPublic",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "permissionAllowIdAccess",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "tags",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 700
+        },
+        {
+          "key": "permissionAllowedReaders",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 4000
+        },
+        {
+          "key": "permissionAllowedWriters",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 4000
+        }
+      ]
+    },
+    {
       "endpoint": "hunyuan3d-v3.1/image-to-3d",
       "name_cn": "混元图生3D模型v3.1",
       "name_en": "hunyuan3d-v3.1/image-to-3d",
@@ -625,6 +1200,52 @@
             "1536"
           ],
           "default": "1536"
+        },
+        {
+          "key": "face",
+          "type": "INT",
+          "required": false,
+          "default": 2000000,
+          "min": 100000,
+          "max": 2000000
+        }
+      ]
+    },
+    {
+      "endpoint": "hitem3d-v21/image-to-3d",
+      "name_cn": "hitem3d-v21/image-to-3d",
+      "name_en": "hitem3d-v21/image-to-3d",
+      "task": "image-to-3d",
+      "output_type": "3d",
+      "category": "RunningHub/HiTem3D",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "requestType",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "mesh",
+            "both"
+          ],
+          "default": "mesh"
+        },
+        {
+          "key": "imageUrl",
+          "type": "IMAGE",
+          "required": true,
+          "maxSizeMB": 20
+        },
+        {
+          "key": "resolution",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "1536pro",
+            "1536fast"
+          ],
+          "default": "1536pro"
         },
         {
           "key": "face",
@@ -5630,7 +6251,7 @@
       "name_en": "happyhorse-1.0/image-to-video",
       "task": "image-to-video",
       "output_type": "video",
-      "category": "RunningHub/Alibaba",
+      "category": "RunningHub/HappyHorse",
       "popularity": 99,
       "tags": [],
       "params": [
@@ -6673,6 +7294,70 @@
       ]
     },
     {
+      "endpoint": "hitem3d-v21/multi-image-to-3d",
+      "name_cn": "hitem3d-v21/multi-image-to-3d",
+      "name_en": "hitem3d-v21/multi-image-to-3d",
+      "task": "multi-image-to-3d",
+      "output_type": "3d",
+      "category": "RunningHub/HiTem3D",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "requestType",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "mesh",
+            "both"
+          ],
+          "default": "mesh"
+        },
+        {
+          "key": "frontImageUrl",
+          "type": "IMAGE",
+          "required": true,
+          "maxSizeMB": 20
+        },
+        {
+          "key": "backImageUrl",
+          "type": "IMAGE",
+          "required": false,
+          "maxSizeMB": 20
+        },
+        {
+          "key": "leftImageUrl",
+          "type": "IMAGE",
+          "required": false,
+          "maxSizeMB": 20
+        },
+        {
+          "key": "rightImageUrl",
+          "type": "IMAGE",
+          "required": false,
+          "maxSizeMB": 20
+        },
+        {
+          "key": "resolution",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "1536pro",
+            "1536fast"
+          ],
+          "default": "1536pro"
+        },
+        {
+          "key": "face",
+          "type": "INT",
+          "required": false,
+          "default": 2000000,
+          "min": 100000,
+          "max": 2000000
+        }
+      ]
+    },
+    {
       "endpoint": "rhart-audio/text-to-audio/music-2.5",
       "name_cn": "minimax/music-2.5",
       "name_en": "minimax/music-2.5",
@@ -6977,6 +7662,247 @@
           "required": false,
           "min": -1,
           "max": 2147483647
+        }
+      ]
+    },
+    {
+      "endpoint": "marble-1.0/text-to-world",
+      "name_cn": "marble-1.0 文生3D世界",
+      "name_en": "marble-1.0/text-to-world",
+      "task": "other",
+      "output_type": "string",
+      "category": "RunningHub/Marble",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 4000
+        },
+        {
+          "key": "disableRecaption",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "displayName",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 64
+        },
+        {
+          "key": "seed",
+          "type": "INT",
+          "required": false
+        },
+        {
+          "key": "permissionPublic",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "permissionAllowIdAccess",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "tags",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 700
+        },
+        {
+          "key": "permissionAllowedReaders",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 4000
+        },
+        {
+          "key": "permissionAllowedWriters",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 4000
+        }
+      ]
+    },
+    {
+      "endpoint": "marble/upload-media-asset",
+      "name_cn": "Marble 上传媒体资源",
+      "name_en": "marble/upload-media-asset",
+      "task": "other",
+      "output_type": "string",
+      "category": "RunningHub/Marble",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "fileName",
+          "type": "STRING",
+          "required": true,
+          "maxLength": 64
+        },
+        {
+          "key": "kind",
+          "type": "LIST",
+          "required": true,
+          "options": [
+            "image",
+            "video"
+          ],
+          "default": "image"
+        },
+        {
+          "key": "extension",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 16
+        },
+        {
+          "key": "imageUrl",
+          "type": "IMAGE",
+          "required": false,
+          "maxSizeMB": 100
+        },
+        {
+          "key": "videoUrl",
+          "type": "VIDEO",
+          "required": false,
+          "maxSizeMB": 100
+        }
+      ]
+    },
+    {
+      "endpoint": "marble-1.1/text-to-world",
+      "name_cn": "marble-1.1 文生3D世界",
+      "name_en": "marble-1.1/text-to-world",
+      "task": "other",
+      "output_type": "string",
+      "category": "RunningHub/Marble",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 4000
+        },
+        {
+          "key": "disableRecaption",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "displayName",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 64
+        },
+        {
+          "key": "seed",
+          "type": "INT",
+          "required": false
+        },
+        {
+          "key": "permissionPublic",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "permissionAllowIdAccess",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "tags",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 700
+        },
+        {
+          "key": "permissionAllowedReaders",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 4000
+        },
+        {
+          "key": "permissionAllowedWriters",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 4000
+        }
+      ]
+    },
+    {
+      "endpoint": "marble-1.1-plus/text-to-world",
+      "name_cn": "marble-1.1-plus 文生3D世界",
+      "name_en": "marble-1.1-plus/text-to-world",
+      "task": "other",
+      "output_type": "string",
+      "category": "RunningHub/Marble",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 4000
+        },
+        {
+          "key": "disableRecaption",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "displayName",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 64
+        },
+        {
+          "key": "seed",
+          "type": "INT",
+          "required": false
+        },
+        {
+          "key": "permissionPublic",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "permissionAllowIdAccess",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "tags",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 700
+        },
+        {
+          "key": "permissionAllowedReaders",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 4000
+        },
+        {
+          "key": "permissionAllowedWriters",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 4000
         }
       ]
     },
@@ -8182,7 +9108,7 @@
       "name_en": "happyhorse-1.0/reference-to-video",
       "task": "reference-to-video",
       "output_type": "video",
-      "category": "RunningHub/Alibaba",
+      "category": "RunningHub/HappyHorse",
       "popularity": 99,
       "tags": [],
       "params": [
@@ -14089,7 +15015,7 @@
       "name_en": "happyhorse-1.0/text-to-video",
       "task": "text-to-video",
       "output_type": "video",
-      "category": "RunningHub/Alibaba",
+      "category": "RunningHub/HappyHorse",
       "popularity": 99,
       "tags": [],
       "params": [
@@ -14601,7 +15527,7 @@
       "name_en": "happyhorse-1.0/video-edit",
       "task": "video-edit",
       "output_type": "video",
-      "category": "RunningHub/Alibaba",
+      "category": "RunningHub/HappyHorse",
       "popularity": 99,
       "tags": [],
       "params": [
@@ -16199,6 +17125,281 @@
             "21:9"
           ],
           "default": "1:1"
+        }
+      ]
+    },
+    {
+      "endpoint": "kling-v2-ai-avatar-standard/image-audio-to-video",
+      "name_cn": "Kling V2 Std 数字人口播视频",
+      "name_en": "kling-v2-ai-avatar-standard/image-audio-to-video",
+      "task": "video-other",
+      "output_type": "video",
+      "category": "RunningHub/Kling",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "imageUrl",
+          "type": "IMAGE",
+          "required": true,
+          "maxSizeMB": 10
+        },
+        {
+          "key": "audioUrl",
+          "type": "AUDIO",
+          "required": true,
+          "maxSizeMB": 20
+        },
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 2048
+        }
+      ]
+    },
+    {
+      "endpoint": "kling-v2-ai-avatar-pro/image-audio-to-video",
+      "name_cn": "Kling V2 Pro 数字人口播视频",
+      "name_en": "kling-v2-ai-avatar-pro/image-audio-to-video",
+      "task": "video-other",
+      "output_type": "video",
+      "category": "RunningHub/Kling",
+      "popularity": 99,
+      "tags": [
+        "pro"
+      ],
+      "params": [
+        {
+          "key": "imageUrl",
+          "type": "IMAGE",
+          "required": true,
+          "maxSizeMB": 10
+        },
+        {
+          "key": "audioUrl",
+          "type": "AUDIO",
+          "required": true,
+          "maxSizeMB": 20
+        },
+        {
+          "key": "prompt",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 2048
+        }
+      ]
+    },
+    {
+      "endpoint": "marble-1.0/video-to-world",
+      "name_cn": "marble-1.0 视频生3D世界",
+      "name_en": "marble-1.0/video-to-world",
+      "task": "video-other",
+      "output_type": "video",
+      "category": "RunningHub/Marble",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "videoUrl",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 2048
+        },
+        {
+          "key": "textPrompt",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 4000
+        },
+        {
+          "key": "disableRecaption",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "displayName",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 64
+        },
+        {
+          "key": "seed",
+          "type": "INT",
+          "required": false
+        },
+        {
+          "key": "permissionPublic",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "permissionAllowIdAccess",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "tags",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 700
+        },
+        {
+          "key": "permissionAllowedReaders",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 4000
+        },
+        {
+          "key": "permissionAllowedWriters",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 4000
+        }
+      ]
+    },
+    {
+      "endpoint": "marble-1.1/video-to-world",
+      "name_cn": "marble-1.1 视频生3D世界",
+      "name_en": "marble-1.1/video-to-world",
+      "task": "video-other",
+      "output_type": "video",
+      "category": "RunningHub/Marble",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "videoUrl",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 2048
+        },
+        {
+          "key": "textPrompt",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 4000
+        },
+        {
+          "key": "disableRecaption",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "displayName",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 64
+        },
+        {
+          "key": "seed",
+          "type": "INT",
+          "required": false
+        },
+        {
+          "key": "permissionPublic",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "permissionAllowIdAccess",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "tags",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 700
+        },
+        {
+          "key": "permissionAllowedReaders",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 4000
+        },
+        {
+          "key": "permissionAllowedWriters",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 4000
+        }
+      ]
+    },
+    {
+      "endpoint": "marble-1.1-plus/video-to-world",
+      "name_cn": "marble-1.1-plus 视频生3D世界",
+      "name_en": "marble-1.1-plus/video-to-world",
+      "task": "video-other",
+      "output_type": "video",
+      "category": "RunningHub/Marble",
+      "popularity": 99,
+      "tags": [],
+      "params": [
+        {
+          "key": "videoUrl",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 2048
+        },
+        {
+          "key": "textPrompt",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 4000
+        },
+        {
+          "key": "disableRecaption",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "displayName",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 64
+        },
+        {
+          "key": "seed",
+          "type": "INT",
+          "required": false
+        },
+        {
+          "key": "permissionPublic",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "permissionAllowIdAccess",
+          "type": "BOOLEAN",
+          "required": false,
+          "default": false
+        },
+        {
+          "key": "tags",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 700
+        },
+        {
+          "key": "permissionAllowedReaders",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 4000
+        },
+        {
+          "key": "permissionAllowedWriters",
+          "type": "STRING",
+          "required": false,
+          "maxLength": 4000
         }
       ]
     },
