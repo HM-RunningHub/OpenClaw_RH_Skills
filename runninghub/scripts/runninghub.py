@@ -162,7 +162,7 @@ def curl_post_json(url: str, payload: dict, headers: dict, timeout: int = 60) ->
                "--max-time", str(timeout), "-d", f"@{tmp_path}"]
         for k, v in headers.items():
             cmd += ["-H", f"{k}: {v}"]
-        return subprocess.run(cmd, capture_output=True, text=True)
+        return subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8")
     finally:
         os.unlink(tmp_path)
 
@@ -362,7 +362,7 @@ def upload_file(api_key: str, file_path: str) -> str:
     cmd = ["curl", "-s", "-S", "--fail-with-body", "-X", "POST", url,
            "-H", f"Authorization: Bearer {api_key}",
            "-F", f"file=@{file_path}", "--max-time", "120"]
-    result = subprocess.run(cmd, capture_output=True, text=True)
+    result = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8")
     if result.returncode != 0:
         print(f"Upload failed: {result.stderr}", file=sys.stderr)
         sys.exit(1)
@@ -469,7 +469,7 @@ def poll_task(api_key: str, task_id: str) -> dict:
 def download_file(url: str, output_path: str) -> str:
     Path(output_path).parent.mkdir(parents=True, exist_ok=True)
     cmd = ["curl", "-s", "-S", "-L", "-o", output_path, "--max-time", "300", url]
-    result = subprocess.run(cmd, capture_output=True, text=True)
+    result = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8")
     if result.returncode != 0:
         print(f"Download failed: {result.stderr}", file=sys.stderr)
         sys.exit(1)
