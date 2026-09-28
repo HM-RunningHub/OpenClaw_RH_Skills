@@ -34,6 +34,16 @@ UPLOAD_ENDPOINT = "/media/upload/binary"
 MAX_POLL_SECONDS = 1200
 POLL_INTERVAL = 5
 
+# Windows: a console-subsystem child started by a console-less parent (the
+# scheduler, or pythonw) gets a visible console allocated -- a black window
+# flash. Ask the OS not to create one. 0 elsewhere, where it is ignored.
+NO_WINDOW = getattr(subprocess, "CREATE_NO_WINDOW", 0) if os.name == "nt" else 0
+
+# Cross-platform scratch dir used when no --output is given. On POSIX this is
+# the documented /tmp/openclaw/rh-output; on Windows there is no /tmp, so use
+# the real temp dir instead of a bogus C:\tmp.
+DEFAULT_OUTPUT_DIR = Path(tempfile.gettempdir()) / "openclaw" / "rh-output"
+
 SCRIPT_DIR = Path(__file__).resolve().parent
 DATA_DIR = SCRIPT_DIR.parent / "data"
 CAPABILITIES_PATH = DATA_DIR / "capabilities.json"
@@ -162,7 +172,9 @@ def curl_post_json(url: str, payload: dict, headers: dict, timeout: int = 60) ->
                "--max-time", str(timeout), "-d", f"@{tmp_path}"]
         for k, v in headers.items():
             cmd += ["-H", f"{k}: {v}"]
-        return subprocess.run(cmd, capture_output=True, text=True)
+        return subprocess.run(cmd, capture_output=True, text=True,
+                              encoding="utf-8", stdin=subprocess.DEVNULL,
+                              creationflags=NO_WINDOW)
     finally:
         os.unlink(tmp_path)
 
@@ -362,7 +374,9 @@ def upload_file(api_key: str, file_path: str) -> str:
     cmd = ["curl", "-s", "-S", "--fail-with-body", "-X", "POST", url,
            "-H", f"Authorization: Bearer {api_key}",
            "-F", f"file=@{file_path}", "--max-time", "120"]
-    result = subprocess.run(cmd, capture_output=True, text=True)
+    result = subprocess.run(cmd, capture_output=True, text=True,
+                            encoding="utf-8", stdin=subprocess.DEVNULL,
+                            creationflags=NO_WINDOW)
     if result.returncode != 0:
         print(f"Upload failed: {result.stderr}", file=sys.stderr)
         sys.exit(1)
@@ -469,7 +483,9 @@ def poll_task(api_key: str, task_id: str) -> dict:
 def download_file(url: str, output_path: str) -> str:
     Path(output_path).parent.mkdir(parents=True, exist_ok=True)
     cmd = ["curl", "-s", "-S", "-L", "-o", output_path, "--max-time", "300", url]
-    result = subprocess.run(cmd, capture_output=True, text=True)
+    result = subprocess.run(cmd, capture_output=True, text=True,
+                            encoding="utf-8", stdin=subprocess.DEVNULL,
+                            creationflags=NO_WINDOW)
     if result.returncode != 0:
         print(f"Download failed: {result.stderr}", file=sys.stderr)
         sys.exit(1)
@@ -664,7 +680,7 @@ def cmd_execute(args):
     output_path = args.output
     if not output_path:
         ext = output_type_ext or _guess_ext(endpoint_def["output_type"])
-        output_path = f"/tmp/openclaw/rh-output/result.{ext}"
+        output_path = str(DEFAULT_OUTPUT_DIR / f"result.{ext}")
 
     if output_type_ext:
         output_path = str(Path(output_path).with_suffix(f".{output_type_ext}"))

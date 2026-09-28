@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "rh-task-types/1",
+  "types": [
+    {
+      "typeId": "image-gen",
+      "version": 1,
+      "displayName": "文生图（公共案例）",
+      "description": "公共 ComfyUI 文生图工作流，开箱即用：删除 .example 扩展名后可直接提交。",
+      "workflowId": "1904136902449209346",
+      "instanceType": "default",
+      "params": [
+        {
+          "name": "prompt",
+          "label": "画面描述",
+          "type": "text",
+          "required": true,
+          "nodeId": "6",
+          "fieldName": "text"
+        }
+      ],
+      "fixedOverrides": []
+    }
+  ]
+}

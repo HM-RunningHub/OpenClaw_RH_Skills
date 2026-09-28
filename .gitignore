@@ -31,3 +31,12 @@ Thumbs.db
 # Logs
 *.log
 *.tmp
+
+# RunningHub private runtime config — keep *.json.example templates
+/runninghub/config/**/*.json
+# Runtime task-pool data (SQLite ledger, working files)
+/runninghub/data/pool/
+# Local self-tests (not shipped)
+/runninghub/tests/
+# Runtime resources (images, audio, video)
+/runninghub/data/resources/

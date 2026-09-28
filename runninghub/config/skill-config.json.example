@@ -1,0 +1,8 @@
+{
+  "schemaVersion": "rh-pool-config/1",
+  "concurrency": 3,
+  "defaultInstanceType": "default",
+  "pollIntervalSeconds": 30,
+  "sessionKey": "agent:main:main",
+  "dataDir": "data/pool"
+}
